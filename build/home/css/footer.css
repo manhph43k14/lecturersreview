@@ -90,9 +90,6 @@ footer .right{
     footer .col-lg-5 .introduce{
         display: flex; 
     }
-    footer .col-lg-5 .introduce .logo{
-        
-    }
     .introduce p{
         transition: 0.4s;
     }
