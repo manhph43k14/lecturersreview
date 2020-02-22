@@ -7,6 +7,9 @@ footer{
     color: white;
     padding: 5px 20px 10px 100px;
 }
+footer .foot{
+    color: white;
+}
 footer .col-lg-5{
     padding: 0px 20px 0px 0px;
 }
