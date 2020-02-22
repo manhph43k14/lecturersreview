@@ -5,36 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./css/style.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $(".login-form").hide();
-            $(".login").css("background","none");
-
-            $(".login").click(function(){
-                $(".signup-form").hide();
-                $(".login-form").show();
-                $(".signup").css("background","none");
-                $(".login").css("background","#fff");
-            });
-
-            $(".signup").click(function(){
-                $(".signup-form").show();
-                $(".login-form").hide();
-                $(".signup").css("background","#fff");
-                $(".login").css("background","none");
-            });
-
-            $(".btn").click(function(){
-                $(".input").val("");
-            });
-        });
-    </script>
+    <script src="./js/script.js"></script>
     <title>Login</title>
 </head>
 
-<body>
+<body> 
     <div class="header">
         <h1>Hệ thống hỗ trợ sinh viên</h1>
     </div>
