@@ -78,7 +78,6 @@ footer .right{
     }
     footer .right {
         margin-top: 150px;
-        margin-right: 0px;
     }
 }
 @media (max-width: 1200px){
@@ -101,7 +100,7 @@ footer .right{
         margin-top: 180px;
     }
 }
-@media (max-width: 1199px){
+@media (max-width: 1197px){
     footer{
         padding: 5px 150px 5px 150px;
     }
@@ -112,13 +111,10 @@ footer .right{
         font-size: 17px;
         transition: 0.3s;
     }
-    footer .col-lg-4, .col-lg-3, .col-lg-5, .right{
-        text-align: center;
-    }
 }
 @media (max-width: 992px){
     footer{
-        padding: 5px 80px 5px 80px;
+        padding: 5px 150px 5px 150px;
     }
     footer .col-lg-5 .introduce p{
         font-size: 14px;
@@ -128,15 +124,10 @@ footer .right{
         font-size: 14px;
         transition: 0.4s;
     }
-    footer .col-lg-5 .introduce .logo{
-        width: 70px;
-        height: 70px;
-        transition: 0.4s;
-    }
 }
 @media (max-width: 795px){
     footer{
-        padding: 5px 40px 5px 40px;
+        padding: 5px 80px 5px 80px;
     }
     footer .right{
         font-size: 13px;
