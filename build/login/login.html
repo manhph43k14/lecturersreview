@@ -6,20 +6,54 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $(".login-form").hide();
+            $(".login").css("background","none");
+
+            $(".login").click(function(){
+                $(".signup-form").hide();
+                $(".login-form").show();
+                $(".signup").css("background","none");
+                $(".login").css("background","#fff");
+            });
+
+            $(".signup").click(function(){
+                $(".signup-form").show();
+                $(".login-form").hide();
+                $(".signup").css("background","#fff");
+                $(".login").css("background","none");
+            });
+
+            $(".btn").click(function(){
+                $(".input").val("");
+            });
+        });
+    </script>
     <title>Login</title>
 </head>
 
 <body>
-    <span style="font-size:12px;">
-        <span style="font-family:arial,helvetica,sans-serif;">
-            <form>
-                <h1>Login</h1>
-                <input placeholder="Username" type="text" required="">
-                <input placeholder="Password" type="password" required="">
-                <button>Submit</button>
-            </form>
-        </span>
-    </span>
+    <div class="header">
+        <h1>Hệ thống hỗ trợ sinh viên</h1>
+    </div>
+    <div class="container">
+        <div class="signup">sign up</div>
+        <div class="login">log in</div>
+        <div class="signup-form">
+            <input type="text" placeholder="Your Email Address" class="input"><br>
+            <input type="text" placeholder="Choose A UserName" class="input"><br>
+            <input type="password" placeholder="Choose A Password" class="input"><br>
+            <div class="btn">create account</div>
+        </div>
+        <div class="login-form">
+            <input type="text" class="input" placeholder="Email or UserName"><br>
+            <input type="password" class="input" placeholder="Password"><br>
+            <div class="btn">log in</div>
+            <span><a href="#">I forgot my Username or Password</a></span>
+        </div>
+    </div>
 </body>
 
 </html>
