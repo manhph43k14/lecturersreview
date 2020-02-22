@@ -3,7 +3,7 @@
     padding: 0;
 }
 footer{
-    background-color: black;
+    background-color: rgb(41, 41, 41);
     color: white;
     padding: 5px 20px 10px 100px;
 }
@@ -54,7 +54,6 @@ footer .right{
     box-sizing: border-box;
 } 
 @media (max-width: 1340px){
-    .right{visibility: hidden;}
     footer{
         padding: 5px 10px 0px 50px;
     }
@@ -77,31 +76,40 @@ footer .right{
         font-size: 17px;
         transition: 0.4s;
     }
+    footer .right {
+        margin-top: 150px;
+    }
 }
 @media (max-width: 1200px){
     footer{
-        padding: 5px 200px 5px 200px;
+        padding: 5px 120px 5px 120px;
     }
     .right{
-        visibility: visible;
         font-size: 16px;
     }
     footer .col-lg-5 .introduce{
-        display: block; 
-    }
-    footer .col-lg-5 .introduce .logo{
-        opacity: 0;
+        display: flex; 
     }
     .introduce p{
-        font-size: 17px;
-        margin-top: -90px;
         transition: 0.4s;
     }
     footer .col-lg-4{
         padding-left: 0px;
     }
     footer .right{
-        margin-top: 15px;
+        margin-top: 180px;
+    }
+}
+@media (max-width: 1197px){
+    footer{
+        padding: 5px 150px 5px 150px;
+    }
+    footer .right{
+        margin-top: 10px;
+    }
+    .introduce p{
+        font-size: 17px;
+        transition: 0.3s;
     }
 }
 @media (max-width: 992px){
@@ -119,7 +127,7 @@ footer .right{
 }
 @media (max-width: 795px){
     footer{
-        padding: 5px 90px 5px 90px;
+        padding: 5px 80px 5px 80px;
     }
     footer .right{
         font-size: 13px;
