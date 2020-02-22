@@ -11,7 +11,7 @@
     <title>Login</title>
 </head>
 
-<body> 
+<body>
     <div class="header">
         <h1>Hệ thống hỗ trợ sinh viên</h1>
     </div>
@@ -22,15 +22,38 @@
             <input type="text" placeholder="Your Email Address" class="input"><br>
             <input type="text" placeholder="Choose A UserName" class="input"><br>
             <input type="password" placeholder="Choose A Password" class="input"><br>
-            <div class="btn">create account</div>
+            <button type="submit" class="btn btn-success btn-block my-3" onclick="signup">Sign up</button>
+
         </div>
         <div class="login-form">
             <input type="text" class="input" placeholder="Email or UserName"><br>
             <input type="password" class="input" placeholder="Password"><br>
-            <div class="btn">log in</div>
+            <button type="submit" class="btn btn-success btn-block my-3" onclick="login">Log in</button>
             <span><a href="#">I forgot my Username or Password</a></span>
         </div>
     </div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebase/7.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebase/7.9.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebase/7.9.1/firebase-firestore.js"></script>
+    <!-- Initialize Firebase -->
+    <script src="https://www.gstatic.com/firebase/init.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyA5ichiiAjA9m315Xo11UOOl1dGT-LIKEQ",
+            authDomain: "ldr-pj.firebaseapp.com",
+            databaseURL: "https://ldr-pj.firebaseio.com",
+            projectId: "ldr-pj",
+            storageBucket: "ldr-pj.appspot.com",
+            messagingSenderId: "361508485649",
+            appId: "1:361508485649:web:2767400a042fe8ea6b0fb0",
+            measurementId: "G-KJKLZNCSQ7"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </body>
 
 </html>
