@@ -6,30 +6,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/style.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js">
+    </script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js">
+    </script>
     <script src="./js/script.js"></script>
     <title>Login</title>
 </head>
 
 <body>
     <div class="header">
-        <h1>Hệ thống hỗ trợ sinh viên</h1>
+        <h1>DUE Lecturers review</h1>
     </div>
-    <div class="container">
-        <div class="signup">sign up</div>
-        <div class="login">log in</div>
-        <div class="signup-form">
-            <input type="text" placeholder="Your Email Address" class="input"><br>
-            <input type="text" placeholder="Choose A UserName" class="input"><br>
-            <input type="password" placeholder="Choose A Password" class="input"><br>
-            <button type="submit" class="btn btn-success btn-block my-3" onclick="signup">Sign up</button>
+    <div class="container-fluid bg">
+        <div class="row justify-content-center">
+            <div class="col-md-3 col-sm-6 col-xs-12 row-container">
+                <form>
+                    <div class="login">Login</div>
+                    <div class="signup">Sign up</div>
+                    <div class="signup-form">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            <p class="emailError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <p class="passwordError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <p class="passwordError"></p>
+                        </div>
 
-        </div>
-        <div class="login-form">
-            <input type="text" class="input" placeholder="Email or UserName"><br>
-            <input type="password" class="input" placeholder="Password"><br>
-            <button type="submit" class="btn btn-success btn-block my-3" onclick="login">Log in</button>
-            <span><a href="#">I forgot my Username or Password</a></span>
+                        <button type="submit" class="btn btn-success btn-block my-3" onclick="signup">Sign up</button>
+
+                    </div>
+                    <div class="login-form">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            <p class="emailError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="label">Password</label>
+                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <p class="passwordError"></p>
+                        </div>
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="rememberMe">
+                            <label class="form-check-label" for="rememberMe">Remember</label>
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block my-3" onclick="login">Log in</button>
+                        <p><span><a href="#">I forgot my Username or Password</a></span></p>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 
