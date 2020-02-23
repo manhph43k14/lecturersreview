@@ -1,22 +1,22 @@
-$(document).ready(function(){
-    $(".login-form").hide();
-    $(".login").css("background","none");
+$(document).ready(function() {
+    $(".signup-form").hide();
+    // $(".signup").css("background", "none");
 
-    $(".login").click(function(){
+    $(".login").click(function() {
         $(".signup-form").hide();
         $(".login-form").show();
-        $(".signup").css("background","none");
-        $(".login").css("background","#fff");
+        // $(".signup").css("background", "none");
+        // $(".login").css("background", "#fff");
     });
 
-    $(".signup").click(function(){
+    $(".signup").click(function() {
         $(".signup-form").show();
         $(".login-form").hide();
-        $(".signup").css("background","#fff");
-        $(".login").css("background","none");
+        // $(".signup").css("background", "#fff");
+        // $(".login").css("background", "none");
     });
 
-    $(".btn").click(function(){
+    $(".btn").click(function() {
         $(".input").val("");
     });
 });
