@@ -25,35 +25,16 @@
                 <form>
                     <div class="login">Login</div>
                     <div class="signup">Sign up</div>
-                    <div class="signup-form">
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email">
-                            <p class="emailError"></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
-                            <p class="passwordError"></p>
-                        </div>
-                        <div class="form-group">
-                            <label for="password" class="label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
-                            <p class="passwordError"></p>
-                        </div>
-
-                        <button type="submit" class="btn btn-success btn-block my-3" onclick="signup">Sign up</button>
-
-                    </div>
+                    <!-- Sign in form -->
                     <div class="login-form">
                         <div class="form-group">
                             <label for="email">Email address</label>
-                            <input type="email" class="form-control" id="email" placeholder="Enter email">
+                            <input type="email" class="form-control" id="email_login" placeholder="Enter email">
                             <p class="emailError"></p>
                         </div>
                         <div class="form-group">
                             <label for="password" class="label">Password</label>
-                            <input type="password" class="form-control" id="password" placeholder="Password">
+                            <input type="password" class="form-control" id="password_login" placeholder="Password">
                             <p class="passwordError"></p>
                         </div>
                         <div class="form-check">
@@ -63,6 +44,29 @@
                         <button type="submit" class="btn btn-success btn-block my-3" onclick="login">Log in</button>
                         <p><span><a href="#">I forgot my Username or Password</a></span></p>
                     </div>
+                    <!-- Sign up form  -->
+                    <div class="signup-form">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control" id="email_signup" placeholder="Enter email">
+                            <p class="emailError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="label">Password</label>
+                            <input type="password" class="form-control" id="password_signup" placeholder="Password">
+                            <p class="passwordError"></p>
+                        </div>
+                        <div class="form-group">
+                            <label for="userName">Your name</label>
+                            <input type="text" class="form-control" id="user_name" placeholder="Enter your name">
+                        </div>
+                        <div class="form-group">
+                            <label for="userClass">Your class</label>
+                            <input type="text" class="form-control" id="user_class" placeholder="Enter your class">
+                        </div>
+                        <button type="submit" class="btn btn-success btn-block my-3" onclick="signup">Sign up</button>
+                    </div>
+
                 </form>
             </div>
         </div>
