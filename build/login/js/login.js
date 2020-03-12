@@ -32,7 +32,9 @@ function login() {
         // ...
         alert("Error : " + errorMessage);
     });
+}
 
+function signup() {
     var emailNew = document.getElementById("email-signup");
     var passwordNew = document.getElementById("password-signup");
 
