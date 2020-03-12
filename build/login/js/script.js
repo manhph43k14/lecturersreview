@@ -4,14 +4,14 @@ $(document).ready(function() {
 
     $(".login").click(function() {
         $(".signup-form").hide();
-        $(".login-form").show();
+        $(".signin-form").show();
         // $(".signup").css("background", "none");
         // $(".login").css("background", "#fff");
     });
 
     $(".signup").click(function() {
         $(".signup-form").show();
-        $(".login-form").hide();
+        $(".signin-form").hide();
         // $(".signup").css("background", "#fff");
         // $(".login").css("background", "none");
     });
