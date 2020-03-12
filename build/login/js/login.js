@@ -2,6 +2,7 @@
 function toggleSignIn() {
     if (firebase.auth().currentUser) {
         // [START signout]
+        window.location = "../home/index.html"
         firebase.auth().signOut();
         // [END signout]
     } else {
