@@ -1,25 +1,3 @@
-// Get user data
-firebase.auth().onAuthStateChanged(function(user) {
-    if (user) {
-        // User is signed in.
-        // var displayName = user.displayName;
-        var email = user.email;
-        alert("Active User" + email);
-        // var emailVerified = user.emailVerified;
-        // var photoURL = user.photoURL;
-        // var isAnonymous = user.isAnonymous;
-        // var uid = user.uid;
-        // var providerData = user.providerData;
-        // ...
-        // window.location.replace("..\home\index.html");
-    } else {
-        alert("No active User");
-        // User is signed out.
-        // ...
-    }
-});
-
-
 function login() {
     var email = document.getElementById("email-signin");
     var password = document.getElementById("password-signin");
@@ -30,7 +8,12 @@ function login() {
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
-        alert("Error : " + errorMessage);
+        if (errorCode === 'auth/wrong-password') {
+            alert('Wrong password.');
+        } else {
+            alert(errorMessage);
+        }
+        console.log(error);
     });
 }
 
@@ -44,6 +27,38 @@ function signup() {
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
-        alert("Error : " + errorMessage);
+        if (errorCode == 'auth/weak-password') {
+            alert('The password is too weak.');
+        } else {
+            alert(errorMessage);
+        }
+        console.log(error);
+
     });
 }
+// Get user data
+function initWeb() {
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in.
+            // var displayName = user.displayName;
+            var email = user.email;
+            alert("Active User" + email);
+            // var emailVerified = user.emailVerified;
+            // var photoURL = user.photoURL;
+            // var isAnonymous = user.isAnonymous;
+            // var uid = user.uid;
+            // var providerData = user.providerData;
+            // ...
+            // window.location.replace("..\home\index.html");
+        } else {
+            alert("No active User");
+            // User is signed out.
+            // ...
+        }
+    });
+}
+
+window.onload = function() {
+    initWeb();
+};
