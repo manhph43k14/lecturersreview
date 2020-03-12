@@ -2,7 +2,7 @@
 function toggleSignIn() {
     if (firebase.auth().currentUser) {
         // [START signout]
-        window.location = "../home/index.html"
+        // window.location = "../home/index.html"
         firebase.auth().signOut();
         // [END signout]
     } else {
@@ -29,12 +29,12 @@ function toggleSignIn() {
                 alert(errorMessage);
             }
             console.log(error);
-            document.getElementById('btnLogin').disabled = false;
+            // document.getElementById('btnLogin').disabled = false;
             // [END_EXCLUDE]
         });
         // [END authwithemail]
     }
-    document.getElementById('btnLogin').disabled = true;
+    // document.getElementById('btnLogin').disabled = true;
 }
 
 /**
@@ -117,7 +117,7 @@ function initApp() {
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
         // [START_EXCLUDE silent]
-        document.getElementById('btnLogin').disabled = true;
+        // document.getElementById('btnLogin').disabled = true;
         // [END_EXCLUDE]
         if (user) {
             // User is signed in.
@@ -145,15 +145,15 @@ function initApp() {
             // [END_EXCLUDE]
         }
         // [START_EXCLUDE silent]
-        document.getElementById('btnLogin').disabled = false;
+        // document.getElementById('btnLogin').disabled = false;
         // [END_EXCLUDE]
     });
     // [END authstatelistener]
 
     document.getElementById('btnLogin').addEventListener('click', toggleSignIn, false);
     document.getElementById('btnSignup').addEventListener('click', handleSignUp, false);
-    document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
-    document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
+    // document.getElementById('quickstart-verify-email').addEventListener('click', sendEmailVerification, false);
+    // document.getElementById('quickstart-password-reset').addEventListener('click', sendPasswordReset, false);
 }
 
 window.onload = function() {
