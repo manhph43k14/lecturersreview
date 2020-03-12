@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // sign in 
 function toggleSignIn() {
     if (firebase.auth().currentUser) {
@@ -159,3 +160,5 @@ function initApp() {
 window.onload = function() {
     initApp();
 };
+=======
+>>>>>>> parent of e71e6cb... Update login.js
