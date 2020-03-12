@@ -16,7 +16,7 @@ $(document).ready(function() {
         // $(".login").css("background", "none");
     });
 
-    $(".btn").click(function() {
-        $(".input").val("");
-    });
+    // $(".btn").click(function() {
+    //     $(".input").val("");
+    // });
 });
