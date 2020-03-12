@@ -35,5 +35,6 @@ function login() {
         var errorCode = error.code;
         var errorMessage = error.message;
         // ...
+        alert("Error : " + errorMessage);
     });
 }
