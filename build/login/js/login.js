@@ -5,8 +5,8 @@ function toggleSignIn() {
         firebase.auth().signOut();
         // [END signout]
     } else {
-        var email = document.getElementById('email').value;
-        var password = document.getElementById('password').value;
+        var email = document.getElementById('email_login').value;
+        var password = document.getElementById('password_login').value;
         if (email.length < 4) {
             alert('Please enter an email address.');
             return;
@@ -28,20 +28,21 @@ function toggleSignIn() {
                 alert(errorMessage);
             }
             console.log(error);
-            document.getElementById('quickstart-sign-in').disabled = false;
+            document.getElementById('login-form').disabled = false;
+            upjjjjii
             // [END_EXCLUDE]
         });
         // [END authwithemail]
     }
-    document.getElementById('quickstart-sign-in').disabled = true;
+    document.getElementById('login-form').disabled = true;
 }
 
 /**
  * Handles the sign up button press.
  */
 function handleSignUp() {
-    var email = document.getElementById('email').value;
-    var password = document.getElementById('password').value;
+    var email = document.getElementById('email_signup').value;
+    var password = document.getElementById('password_signup').value;
     if (email.length < 4) {
         alert('Please enter an email address.');
         return;
@@ -116,7 +117,7 @@ function initApp() {
     // [START authstatelistener]
     firebase.auth().onAuthStateChanged(function(user) {
         // [START_EXCLUDE silent]
-        document.getElementById('quickstart-verify-email').disabled = true;
+        document.getElementById('login-form').disabled = true;
         // [END_EXCLUDE]
         if (user) {
             // User is signed in.
