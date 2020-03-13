@@ -43,16 +43,18 @@ function initWeb() {
     firebase.auth().onAuthStateChanged(function(user) {
         if (user) {
             // User is signed in.
-            // var displayName = user.displayName;
+            var displayName = user.displayName;
             var email = user.email;
-            alert("Active User" + email);
+            window.location("https://ldr-pj.web.app")
+            document.getElementById('nav-login').textContent = 'Profile';
+
             // var emailVerified = user.emailVerified;
             // var photoURL = user.photoURL;
             // var isAnonymous = user.isAnonymous;
             // var uid = user.uid;
             // var providerData = user.providerData;
             // ...
-            // window.location.replace("..\home\index.html");
+
         } else {
 
             // User is signed out.
