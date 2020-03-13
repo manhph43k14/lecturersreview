@@ -42,9 +42,9 @@ window.onload = function() {
 
     // Sign in
     btnSignin.addEventListener('click', e => {
-        var email = document.getElementById("email-signin").value;
-        var password = document.getElementById("password-signin").value;
-        firebase.auth().signInWithEmailAndPassword(email, password)
+        var userEmail = document.getElementById("email-signin").value;
+        var userPassword = document.getElementById("password-signin").value;
+        firebase.auth().signInWithEmailAndPassword(userEmail, userPassword)
             .then(function(response) {
                 window.alert("OK");
             })
@@ -78,7 +78,7 @@ window.onload = function() {
             // var uid = user.uid;
             // var providerData = user.providerData;
             // ...
-            window.alert(email);
+            window.location("../index.html");
         } else {
             console.log("No logged in");
             // User is signed out.
