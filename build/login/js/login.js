@@ -1,7 +1,7 @@
 function login() {
     var email = document.getElementById("email-signin");
     var password = document.getElementById("password-signin");
-    alert(email.value + " : " + password.value);
+
     // Sign in
     firebase.auth().signInWithEmailAndPassword(email.value, password.value).catch(function(error) {
         // Handle Errors here.
@@ -22,7 +22,7 @@ function login() {
 function signup() {
     var emailNew = document.getElementById("email-signup");
     var passwordNew = document.getElementById("password-signup");
-    alert(emailNew.value + " : " + passwordNew.value);
+
     // Sign up
     firebase.auth().createUserWithEmailAndPassword(emailNew.value, passwordNew.value).catch(function(error) {
         // Handle Errors here.
@@ -35,7 +35,7 @@ function signup() {
             alert(errorMessage);
         }
         console.log(error);
-        alert("Sign up working!");
+
     });
 }
 // Get user data
@@ -54,7 +54,7 @@ function initWeb() {
             // ...
             // window.location.replace("..\home\index.html");
         } else {
-            alert("No active User");
+
             // User is signed out.
             // ...
         }
