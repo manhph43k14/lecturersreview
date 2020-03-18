@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <title>Find</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -9,14 +10,16 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  </head>
-  <body>
+</head>
+
+<body>
     <!-- thanh tìm kiếm -->
     <div class="box">
-      <h3>Tìm kiếm</h3><hr>
-      <div class="timkiem">
-          <input type="search" id="search" placeholder="Nhập từ khóa" />
-          <select class="item">
+        <h3>Tìm kiếm</h3>
+        <hr>
+        <div class="timkiem">
+            <input type="search" id="search" placeholder="Nhập từ khóa" />
+            <select class="item">
             <option value="0">-- Chọn chuyên mục --</option>
             <option value="introduce">Giới thiệu</option>
             <option value="teacher">Giảng viên</option>
@@ -25,8 +28,29 @@
             <option value="faculty">Khoa - Phòng</option>
             <option value="educate">Đào tạo</option>
           </select><br>
-          <button type="submit">TÌM</button>
-      </div>
+            <button type="submit">TÌM</button>
+        </div>
     </div>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-firestore.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyA5ichiiAjA9m315Xo11UOOl1dGT-LIKEQ",
+            authDomain: "ldr-pj.firebaseapp.com",
+            databaseURL: "https://ldr-pj.firebaseio.com",
+            projectId: "ldr-pj",
+            storageBucket: "ldr-pj.appspot.com",
+            messagingSenderId: "361508485649",
+            appId: "1:361508485649:web:b60e3b97f9ce73d16b0fb0",
+            measurementId: "G-EM1K4B7EVW"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+    </script>
 </body>
+
 </html>
