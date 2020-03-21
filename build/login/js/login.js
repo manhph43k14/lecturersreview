@@ -4,38 +4,37 @@ function handleSignUp() {
     var passwordNew = document.getElementById("password-signup").value;
     if (emailNew.length < 6) {
         window.alert('Please enter an email address.');
-        return;
     } else
     if (passwordNew.length < 6) {
         window.alert('The password is too weak.');
-        return;
-    } else {
-        window.alert('Create user successfull!');
-        return;
     }
+    // else {
+    //     window.alert('Create user successfull!');
 
+    // }
     // Create user with email and pass.
     // [START createwithemail]
-    firebase.auth().createUserWithEmailAndPassword(emailNew, passwordNew).catch(function(error) {
-        // Handle Errors here.
-        var errorCode = error.code;
-        var errorMessage = error.message;
-        // [START_EXCLUDE]
-        if (errorCode == 'auth/weak-password') {
-            alert('The password is too weak.');
-        } else {
-            alert(errorMessage);
-        }
-        console.log(errorMessage);
-    });
-
+    firebase.auth().createUserWithEmailAndPassword(emailNew, passwordNew).then(function(user) {
+            var user = firebase.auth().currentUser;
+            console.log(user); // Optional
+        })
+        .catch(function(error) {
+            // Handle Errors here.
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            // [START_EXCLUDE]
+            if (errorCode == 'auth/weak-password') {
+                alert('The password is too weak.');
+            } else {
+                alert(errorMessage);
+            }
+            console.log(errorMessage);
+        });
 };
 // Sign in
 function toggleSignIn() {
     if (firebase.auth().currentUser) {
-        // [START signout]
-        window.location.assign("../index.html");
-        // [END signout]
+        window.location.href("../index.html");
     } else {
         var userEmail = document.getElementById("email-signin").value;
         var userPassword = document.getElementById("password-signin").value;
@@ -50,8 +49,9 @@ function toggleSignIn() {
         // Sign in with email and pass.
         // [START authwithemail]
         firebase.auth().signInWithEmailAndPassword(userEmail, userPassword)
-            .then(function(response) {
-                //
+            .then(function(user) {
+                var user = firebase.auth().currentUser;
+                console.log(user); // Optional
             })
             .catch(function(error) {
                 // Handle Errors here.
@@ -79,10 +79,35 @@ function signout() {
 }
 
 function initApp() {
-    const signupForm = this.document.getElementById("signup-form");
-    const signinForm = this.document.getElementById("signin-form");
     const btnSignin = document.getElementById("btnSignin");
     const btnSignup = document.getElementById("btnSignup");
+    // Add a realtime listener
+    firebase.auth().onAuthStateChanged(function(user) {
+        if (user) {
+            // User is signed in .
+            var displayName = user.displayName;
+            var email = user.email;
+            var emailVerified = user.emailVerified;
+            var photoURL = user.photoURL;
+            var isAnonymous = user.isAnonymous;
+            var uid = user.uid;
+            var providerData = user.providerData;
+            // ...
+            console.log("has logged in");
+            window.location.href("../index.html");
+        } else {
+            console.log("No logged in");
+            // User is signed out.
+            // ...
+        }
+    });
+    btnSignin.addEventListener('click', toggleSignIn, false);
+    btnSignup.addEventListener('click', handleSignUp, false);
+}
+
+function design() {
+    const signupForm = document.getElementById("signup-form");
+    const signinForm = document.getElementById("signin-form");
     const divSignup = document.getElementById("div-signup");
     const divSignin = document.getElementById("div-signin");
     // hide Sign up form
@@ -98,29 +123,8 @@ function initApp() {
         signupForm.style.display = "none";
         signinForm.style.display = "block";
     });
-    // Add a realtime listener
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in .
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var isAnonymous = user.isAnonymous;
-            var uid = user.uid;
-            var providerData = user.providerData;
-            // ...
-            console.log("has logged in");
-        } else {
-            console.log("No logged in");
-            // User is signed out.
-            // ...
-        }
-    });
-    btnSignin.addEventListener('click', toggleSignIn, false);
-    btnSignup.addEventListener('click', handleSignUp, false);
 }
-
 window.onload = function() {
+    design();
     initApp();
 }
