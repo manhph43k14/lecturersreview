@@ -34,6 +34,7 @@ function handleSignUp() {
 // Sign in
 function toggleSignIn() {
     if (firebase.auth().currentUser) {
+        console.log("OK");
         window.location.href("../index.html");
     } else {
         var userEmail = document.getElementById("email-signin").value;
