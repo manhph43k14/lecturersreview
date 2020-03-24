@@ -1,4 +1,36 @@
+window.onload = function()
+{
+    init()
+};
+
+// init login page
+function init() {
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyA5ichiiAjA9m315Xo11UOOl1dGT-LIKEQ",
+        authDomain: "ldr-pj.firebaseapp.com",
+        databaseURL: "https://ldr-pj.firebaseio.com",
+        projectId: "ldr-pj",
+        storageBucket: "ldr-pj.appspot.com",
+        messagingSenderId: "361508485649",
+        appId: "1:361508485649:web:b60e3b97f9ce73d16b0fb0",
+        measurementId: "G-EM1K4B7EVW"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+
+    validateLogin()
+}
+
+// Check if user is logged in
+function validateLogin() {
+    if (firebase.auth().currentUser) {
+        window.location.replace("../index.html");
+    }
+}
+
 // Sign up
+// TODO: Implement signUp for new account
 function handleSignUp() {
     var emailNew = document.getElementById("email-signup").value;
     var passwordNew = document.getElementById("password-signup").value;
@@ -31,101 +63,43 @@ function handleSignUp() {
             console.log(errorMessage);
         });
 };
+
 // Sign in
 function toggleSignIn() {
-    if (firebase.auth().currentUser) {
-        console.log("OK");
-        window.location.href("../index.html");
-    } else {
-        var userEmail = document.getElementById("email-signin").value;
-        var userPassword = document.getElementById("password-signin").value;
-        if (userEmail.length < 4) {
-            alert('Please enter an email address.');
-            return;
-        }
-        if (userEmail.length < 4) {
-            alert('Please enter a password.');
-            return;
-        }
-        // Sign in with email and pass.
-        // [START authwithemail]
-        firebase.auth().signInWithEmailAndPassword(userEmail, userPassword)
-            .then(function(user) {
-                var user = firebase.auth().currentUser;
-                console.log(user); // Optional
-            })
-            .catch(function(error) {
-                // Handle Errors here.
-                var errorCode = error.code;
-                var errorMessage = error.message;
-                // [START_EXCLUDE]
-                if (errorCode === 'auth/wrong-password') {
-                    alert('Wrong password.');
-                } else {
-                    alert(errorMessage);
-                }
-                console.log(errorMessage);
-            });
-
+    var email = document.getElementById("email-signin").value;
+    var password = document.getElementById("password-signin").value;
+    if (email.length == 0) {
+        alert('Please enter an email address.');
+        return;
     }
+    if (password.length == 0) {
+        alert('Please enter a password.');
+        return;
+    }
+
+    // Sign in with email and pass.
+    firebase.auth().signInWithEmailAndPassword(email, password)
+        .then((success) => {
+            console.log(success); // log for debug
+            window.location.replace("../index.html")
+        }, (fail) => {
+            console.log(fail) // log for debug
+            // Just show this message for security
+            alert("Email or password is not correct!")
+        })
+        .catch((error) => {
+            console.log(errorMessage) // log for debug
+            // Just show this message for security
+            alert("Something wrong happened! Plz contact administrator for more detail.")
+        });
 };
 
-function signout() {
-    // Sign out
-    firebase.auth().signOut().then(function() {
-        // Sign-out successful.
-    }).catch(function(error) {
-        // An error happened.
-    });
+function switchForm() {
+    switchDisplayMode("signup-form")
+    switchDisplayMode("signin-form")
 }
 
-function initApp() {
-    const btnSignin = document.getElementById("btnSignin");
-    const btnSignup = document.getElementById("btnSignup");
-    // Add a realtime listener
-    firebase.auth().onAuthStateChanged(function(user) {
-        if (user) {
-            // User is signed in .
-            var displayName = user.displayName;
-            var email = user.email;
-            var emailVerified = user.emailVerified;
-            var photoURL = user.photoURL;
-            var isAnonymous = user.isAnonymous;
-            var uid = user.uid;
-            var providerData = user.providerData;
-            // ...
-            console.log("has logged in");
-            window.location.href("../index.html");
-        } else {
-            console.log("No logged in");
-            // User is signed out.
-            // ...
-        }
-    });
-    btnSignin.addEventListener('click', toggleSignIn, false);
-    btnSignup.addEventListener('click', handleSignUp, false);
-}
-
-function design() {
-    const signupForm = document.getElementById("signup-form");
-    const signinForm = document.getElementById("signin-form");
-    const divSignup = document.getElementById("div-signup");
-    const divSignin = document.getElementById("div-signin");
-    // hide Sign up form
-    signupForm.style.display = "none";
-
-    //
-    divSignup.addEventListener('click', e => {
-        signupForm.style.display = "block";
-        signinForm.style.display = "none";
-    });
-    //
-    divSignin.addEventListener('click', e => {
-        signupForm.style.display = "none";
-        signinForm.style.display = "block";
-    });
-}
-window.onload = function() {
-    design();
-    initApp();
+function switchDisplayMode(formName) {
+    const form = document.getElementById(formName);
+    form.style.display = form.style.display == "block" ? "none" : "block"
 }
