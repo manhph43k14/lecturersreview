@@ -94,12 +94,12 @@ function toggleSignIn() {
         });
 };
 
-function switchForm() {
-    switchDisplayMode("signup-form")
-    switchDisplayMode("signin-form")
+function switchForm(id) {
+    switchDisplayMode("signup-form", id == "div-signup")
+    switchDisplayMode("signin-form", id == "div-signin")
 }
 
-function switchDisplayMode(formName) {
+function switchDisplayMode(formName, isShow) {
     const form = document.getElementById(formName);
-    form.style.display = form.style.display == "block" ? "none" : "block"
+    form.style.display = isShow ? "block" : "none"
 }
