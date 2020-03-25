@@ -105,7 +105,7 @@ function toggleSignIn() {
             alert("Email or password is not correct!")
         })
         .catch((error) => {
-            console.log(errorMessage) // log for debug
+            console.log(error) // log for debug
             // Just show this message for security
             alert("Something wrong happened! Plz contact administrator for more detail.")
         });
