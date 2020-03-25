@@ -14,6 +14,7 @@
     <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
     <script src="./js/login.js"></script>
     <title>Login</title>
 </head>
@@ -45,7 +46,7 @@
                             <label class="form-check-label" for="rememberMe">Remember</label>
                         </div>
                         <input type="button" class="btn btn-success btn-block my-3" onclick="toggleSignIn()"
-                            value="Log in" />
+                            value="Sign in" />
                         <p><span><a href="#">I forgot my Password</a></span></p>
                     </div>
                     <!-- Sign up form  -->
@@ -68,7 +69,7 @@
                             <label for="userClass">Your class</label>
                             <input type="text" class="form-control" id="user_class" placeholder="Enter your class">
                         </div>
-                        <button type="submit" class="btn btn-success btn-block my-3" id="btnSignup">Sign up</button>
+                        <input type="button" class="btn btn-success btn-block my-3" onclick="handleSignUp()" value="Sign up" />
                     </div>
                 </form>
             </div>

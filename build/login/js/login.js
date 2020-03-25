@@ -30,38 +30,55 @@ function validateLogin() {
 }
 
 // Sign up
-// TODO: Implement signUp for new account
 function handleSignUp() {
-    var emailNew = document.getElementById("email-signup").value;
-    var passwordNew = document.getElementById("password-signup").value;
-    if (emailNew.length < 6) {
-        window.alert('Please enter an email address.');
-    } else
-    if (passwordNew.length < 6) {
-        window.alert('The password is too weak.');
+    var email = document.getElementById("email-signup").value;
+    var password = document.getElementById("password-signup").value;
+    var name = document.getElementById("user_name").value;
+    var clazz = document.getElementById("user_class").value;
+    if (email.length == 0) {
+        alert('Email is required.')
+        return
+    } else if (password.length == 0) {
+        alert('Password is required.')
+        return
+    } else if (password.length < 6) {
+        alert('Password has to be at least 6 characters long.')
+        return
+    } else if (name.length == 0) {
+        alert('Name is required.')
+        return
+    } else if (clazz.length == 0) {
+        alert('Class is required.')
+        return
     }
-    // else {
-    //     window.alert('Create user successfull!');
 
-    // }
     // Create user with email and pass.
-    // [START createwithemail]
-    firebase.auth().createUserWithEmailAndPassword(emailNew, passwordNew).then(function(user) {
-            var user = firebase.auth().currentUser;
-            console.log(user); // Optional
-        })
-        .catch(function(error) {
-            // Handle Errors here.
-            var errorCode = error.code;
-            var errorMessage = error.message;
-            // [START_EXCLUDE]
-            if (errorCode == 'auth/weak-password') {
-                alert('The password is too weak.');
-            } else {
+    firebase.auth().createUserWithEmailAndPassword(email, password).then(function(response) {
+        var uid = response.user.uid
+        // Create account info in firebase, link by uid
+        firebase.database().ref('Account/' + uid).set({
+            password: password,
+            email: email,
+            name : name,
+            class: clazz,
+            uid: uid
+        }, function(error) {
+            if (error) {
+                var errorMessage = error.message;
                 alert(errorMessage);
+                console.log(error);
+            } else {
+                alert('Account created successfully!')
+                window.location.replace("../index.html");
             }
-            console.log(errorMessage);
         });
+
+        console.log(response); // log for debug
+    })
+    .catch(function(error) {
+        alert("Something wrong happened! Plz contact administrator for more detail.");
+        console.log(error);
+    });
 };
 
 // Sign in
