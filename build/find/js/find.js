@@ -29,8 +29,11 @@ function find() {
     const rootRef = database.ref('users');
     btnFind.addEventListener('click',function(e){
         var content = document.getElementById('search').value;
+        var select = document.getElementById('item');
+        var option = select.options[select.selectedIndex].value;
         var fid = rootRef.push.key;
         database.ref('Find/'+fid).set({
+            Option : option,
             Content: content
           });
     })
