@@ -26,16 +26,31 @@ function init() {
 function find() {
     var btnFind = document.getElementById('btnFind');
     const database = firebase.database();
-    const rootRef = database.ref('users');
     btnFind.addEventListener('click',function(e){
         var content = document.getElementById('search').value;
         var select = document.getElementById('item');
         var option = select.options[select.selectedIndex].value;
-        var fid = rootRef.push.key;
-        database.ref('Find/'+fid).set({
+        var fid =  database.ref().push();
+        database.ref('Find/').push().set({
             Option : option,
             Content: content
           });
+        print(option);
     })
-   
+}
+function print(option){
+    var rootRef = firebase.database().ref(option.toString());
+    rootRef.on("value",getData,errData)
+
+    function getData(data){
+        data = data.val()
+        let keys = Object.keys(data)
+        for(let i=0;i<keys.length;i++){
+            console.log(data[keys[i]].Content)
+            console.log(data[keys[i]].Option)
+        }
+    }
+    function errData(error){
+        console.log(error.message, error.code)
+    }
 }
