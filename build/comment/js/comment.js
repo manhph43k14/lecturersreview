@@ -19,23 +19,26 @@ function init() {
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
 
-    find();
+    sendmassage();
 }
 
 // 
-function find() {
-    var btnFind = document.getElementById('btnFind');
+function sendmassage() {
+    var btnSend = document.getElementById('btnSend');
     const database = firebase.database();
-    btnFind.addEventListener('click',function(e){
-        var content = document.getElementById('search').value;
-        var select = document.getElementById('item');
-        var option = select.options[select.selectedIndex].value;
+    btnSend.addEventListener('click',function(e){
+        var message = document.getElementById('message').value;
+        var lecturers = document.getElementById('lecturers').value;
+        var major = document.getElementById('major').value;
         var fid =  database.ref().push();
-        database.ref('Find/').push().set({
-            Option : option,
-            Content: content
+        Console.log(message,lecturers,major)
+        database.ref('Comment/').push().set({
+            message : message,
+            user: user,
+            lecturers: lecturers,
+            major: major
           });
-        print(option);
+        // print(option);
     })
 }
 function print(option){
