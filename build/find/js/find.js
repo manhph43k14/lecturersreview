@@ -30,7 +30,7 @@ function find() {
         var content = document.getElementById('search').value;
         var select = document.getElementById('item');
         var option = select.options[select.selectedIndex].value;
-        var fid =  database.ref().push();
+        // var fid =  database.ref().push();
         database.ref('Find/').push().set({
             Option : option,
             Content: content
