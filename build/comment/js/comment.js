@@ -31,7 +31,6 @@ function sendmassage() {
         var lecturers = document.getElementById('lecturers').value;
         var major = document.getElementById('major').value;
         var fid =  database.ref().push();
-        Console.log(message,lecturers,major)
         database.ref('Comment/').push().set({
             message : message,
             user: user,
@@ -45,12 +44,12 @@ function print(option){
     switch (option){
         case "Lecturers":
             var rootRef = firebase.database().ref(option);
-            rootRef.on("value",getLec,errData)
-            break
+            rootRef.on("value",getLec,errData);
+            break;
         case "Faculty":
             var rootRef = firebase.database().ref(option);
-            rootRef.on("value",getFal,errData)
-            break
+            rootRef.on("value",getFal,errData);
+            break;
     }
     
 }
