@@ -39,18 +39,34 @@ function find() {
     })
 }
 function print(option){
-    var rootRef = firebase.database().ref(option.toString());
-    rootRef.on("value",getData,errData)
-
-    function getData(data){
-        data = data.val()
-        let keys = Object.keys(data)
-        for(let i=0;i<keys.length;i++){
-            console.log(data[keys[i]].Content)
-            console.log(data[keys[i]].Option)
-        }
+    switch (option){
+        case "Lecturers":
+            var rootRef = firebase.database().ref(option);
+            rootRef.on("value",getLec,errData)
+            break
+        case "Faculty":
+            var rootRef = firebase.database().ref(option);
+            rootRef.on("value",getFal,errData)
+            break
     }
-    function errData(error){
-        console.log(error.message, error.code)
+    
+}
+function getLec(data){
+    data = data.val()
+    let keys = Object.keys(data)
+    for(let i=0;i<keys.length;i++){
+        console.log(data[keys[i]].gender)
+        console.log(data[keys[i]].mail)
     }
+}
+function getFal(data){
+    data = data.val()
+    let keys = Object.keys(data)
+    for(let i=0;i<keys.length;i++){
+        console.log(data[keys[i]].id)
+        console.log(data[keys[i]].name)
+    }
+}
+function errData(error){
+    console.log(error.message, error.code)
 }
