@@ -43,11 +43,11 @@ function print(option){
         case "Lecturers":
             var rootRef = firebase.database().ref(option);
             rootRef.on("value",getLec,errData)
-            break
+            break;
         case "Faculty":
             var rootRef = firebase.database().ref(option);
             rootRef.on("value",getFal,errData)
-            break
+            break;
     }
     
 }
