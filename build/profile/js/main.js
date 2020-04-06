@@ -36,14 +36,14 @@ function submitForm(e){
     var message = getInputVal('message');
 
 
-    saveMessage(first, last, email, city, messega);
+    saveMessage(first, last, email, city, message);
 }
 
 function getInputVal(id){
     return document.getElementById(id).Value;
 }
 
-function saveMessage(first, last, email, city, messega){
+function saveMessage(first, last, email, city, message){
     var newMessageRef = messagesRef.push();
     newMessageRef.set({
         first: first,
