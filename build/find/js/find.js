@@ -26,10 +26,9 @@ function init() {
 function find() {
     var btnFind = document.getElementById('btnFind');
     btnFind.addEventListener('click',function(e){
-        var content = document.getElementById('search').value;
+        var content = document.getElementById('search').value.toLowerCase();
         var select = document.getElementById('item');
         var option = select.options[select.selectedIndex].value;
-        this.state = content;
         addFind(content,option);
         go(option,content);
     })
@@ -46,40 +45,67 @@ function go(option, content){
     switch (option){
         case "Lecturers":
             var rootRef = firebase.database().ref(option);
-            rootRef.on("value",getLec(content, data))
+            rootRef.on("value",function(snapshot){
+                getLec(content,snapshot.val());
+            },errData)
             break;
         case "Faculty":
             var rootRef = firebase.database().ref(option);
-            rootRef.on("value",getFal,errData)
+            rootRef.on("value",function(snapshot){
+                getFal(content,snapshot.val());
+            },errData)
             break;
         case "Subject":
         var rootRef = firebase.database().ref(option);
-        rootRef.on("value",getSub,errData)
+        rootRef.on("value",function(snapshot){
+            getSub(content,snapshot.val());
+        },errData)
         break;
     }
     
 }
 function getLec(content,data){
-    data.forEach(function(childSnapshot) {
-        var data = childSnapshot.val();
-        console.log(data.email)
-    });
-    
-}
-function getFal(data){
-    data = data.val()
     let keys = Object.keys(data)
+    var name= new Array;
     for(let i=0;i<keys.length;i++){
-        console.log(data[keys[i]].id)
-        console.log(data[keys[i]].name)
+        name[i]=data[keys[i]].name;
+    }
+    var index = name.indexOf(content);
+    if(index!=-1){
+        console.log(data[keys[index]].mail);
+        console.log(keys[index]);
+    } else{
+        console.log('not found')
     }
 }
-function getSub(data){
-    data = data.val()
+function getFal(content,data){
     let keys = Object.keys(data)
+    var name= new Array;
     for(let i=0;i<keys.length;i++){
-        console.log(data[keys[i]].lecturers)
-        console.log(data[keys[i]].name)
+        name[i]=data[keys[i]].name;
+    }
+    var index = name.indexOf(content);
+    if(index!=-1){
+        console.log(data[keys[index]].name);
+        console.log(keys[index]);
+    } else{
+        console.log('not found')
+    }
+}
+function getSub(content,data){
+    let keys = Object.keys(data)
+    var name= new Array;
+    for(let i=0;i<keys.length;i++){
+        var temp = data[keys[i]].name;
+
+        name[i]=temp.remove("temp");
+    }
+    var index = name.indexOf(content);
+    if(index!=-1){
+        console.log(data[keys[index]].mail);
+        console.log(keys[index]);
+    } else{
+        console.log('not found')
     }
 }
 function errData(error){
