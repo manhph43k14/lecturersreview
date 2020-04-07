@@ -1,0 +1,50 @@
+.box{
+    width: 60%;
+    margin: auto;
+}
+.box h3{
+    color: darkgrey;
+    font-weight: bold;
+}
+.timkiem{
+    text-align: center;
+    display: block;
+    margin-top: 40px;
+}
+.timkiem input{
+    width: 65%;
+    margin-right: 20px;
+    height: 35px;
+    outline: none;
+    padding-left: 18px;
+    border-color: rgb(199, 199, 199);
+    border-style: solid;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    cursor: text;
+    font-size: 17px;
+}
+.timkiem .item{
+    width: 23%;
+    text-align: center;
+}
+.timkiem button{
+    margin-top: 30px;
+    font-size: 18px;
+    height: 35px;
+    background-color: white;
+    color: #4f5b66;
+    width: 13%;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border-color: rgb(199, 199, 199);
+    border-style: solid;
+}
+button:hover{
+    background-color: #65737e;
+    color: white;
+    border: none;
+    transition: all .2s linear;
+}

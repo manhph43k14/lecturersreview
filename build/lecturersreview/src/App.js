@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import '../src/Footer/footer.css';
+import '../src/Nav/nav.css';
 import {firebaseConnect} from "./firebaseConnect";
+import Nav from "../src/Nav/nav";
+import Footer from "../src/Footer/footer";
+import DieuHuongURL from "../src/Router/DieuHuongURL";
 class App extends Component {
   render() {
-      console.log(firebaseConnect);
       return (
           <div className="App">
-              <header className="App-header">
-                  <img src={logo} className="App-logo" alt="logo"/>
-                  <p>
-                      Edit <code>src/App.js</code> and save to reload.
-                  </p>
-              </header>
+              <Nav/>
+              <DieuHuongURL/>
+              <Footer/>
           </div>
       );
   }

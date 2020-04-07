@@ -1,0 +1,88 @@
+@import url(https://fonts.google.com/specimen/Gamja+Flower?selection.family=Gamja+Flower);
+html,
+.body {
+    width: 100%;
+    height: 100%;
+    font-family: 'Gamja Flower';
+    font-size: 18px;
+    color: #222;
+}
+
+.carousel-inner img {
+    width: 100%;
+}
+
+.carousel-caption {
+    position: absolute;
+    top: 50%;
+}
+
+.carousel-caption h1 {
+    font-size: 400%;
+    text-transform: uppercase;
+    text-shadow: 5px 5px 15px #000;
+}
+
+.carousel-caption h3 {
+    font-size: 200%;
+    text-shadow: 2px 2px 10px #000;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 100%;
+}
+
+.container-fluid{
+    margin-top: 10px;
+}
+
+/*Media Query*/
+
+@media (max-width: 992px) {
+    .carousel-caption {
+        top: 20%;
+    }
+    .carousel-caption h1 {
+        font-size: 250%;
+    }
+    .carousel-caption h3 {
+        font-size: 160%;
+    }
+    .carousel-caption .btn {
+        font-size: 120%;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-caption {
+        top: 20%;
+    }
+    .carousel-caption h1 {
+        font-size: 220%;
+    }
+    .carousel-caption h3 {
+        font-size: 140%;
+        padding-bottom: 0.2rem;
+    }
+    .carousel-caption .btn {
+        font-size: 95%;
+        padding: 8px 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-caption {
+        top: 10%;
+    }
+    .carousel-caption h1 {
+        font-size: 150%;
+    }
+    .carousel-caption h3 {
+        font-size: 110%;
+    }
+    .carousel-caption .btn {
+        font-size: 90%;
+        padding: 4px 8px;
+    }
+}

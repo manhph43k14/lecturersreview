@@ -1,0 +1,40 @@
+.lylich{
+    margin: 0 auto;
+    width: 70%;
+    padding: 30px 50px;
+    display: inline-flex;
+    text-align: center;
+}
+.lylich .col-30{
+    flex: 30%;
+}
+.lylich .col-70{
+    flex: 70%;
+    margin-left: 30px;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+table tr th{
+    text-align: left;
+}
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #f3f3f3;
+}
+.title{
+    font-size: 20px;
+}
+.title::after{
+    content: "Thông tin chung";
+    padding-left: 5px;
+}
+.ava .name{
+    padding: 10px 0px 5px;
+}

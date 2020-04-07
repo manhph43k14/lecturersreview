@@ -1,0 +1,190 @@
+{
+  "Account" : {
+    "L75ytYVVMxhWhr7spQ4Xr87lZ6D3" : {
+      "class" : "43k14",
+      "email" : "admin@gmail.com",
+      "name" : "admin",
+      "password" : "123456",
+      "uid" : "L75ytYVVMxhWhr7spQ4Xr87lZ6D3"
+    },
+    "iLCyBJuBhHSNQ98obDM8XiyOFmC3" : {
+      "class" : "43K14",
+      "email" : "dohoangthang11b1@gmail.com",
+      "name" : "Thắng",
+      "password" : "862414",
+      "uid" : "iLCyBJuBhHSNQ98obDM8XiyOFmC3"
+    }
+  },
+  "Comment" : {
+    "1" : {
+      "lecturers" : "lecturers",
+      "major" : "major",
+      "message" : "message",
+      "user" : "user"
+    },
+    "-M4C8_HhUPFURhbRkuOf" : {
+      "lecturers" : "1",
+      "major" : "1",
+      "message" : "12",
+      "user" : "admin@gmail.com"
+    },
+    "-M4CAgpwyvTUBl0SqJFE" : {
+      "lecturers" : "1",
+      "major" : "1",
+      "message" : "1",
+      "user" : "admin@gmail.com"
+    },
+    "-M4CAhA7lGHdUo1hQ8Dl" : {
+      "lecturers" : "",
+      "major" : "",
+      "message" : "",
+      "user" : "admin@gmail.com"
+    },
+    "-M4CDmeesFlGaBquXUPZ" : {
+      "lecturers" : "",
+      "major" : "",
+      "message" : "a",
+      "user" : "dohoangthang11b1@gmail.com"
+    },
+    "-M4CFHrwerITexu_NqVe" : {
+      "lecturers" : "",
+      "major" : "",
+      "message" : "a",
+      "user" : "dohoangthang11b1@gmail.com"
+    }
+  },
+  "Faculty" : [ null, {
+    "id" : 1,
+    "name" : "Khoa Thống kê tin học"
+  }, {
+    "id" : 2,
+    "name" : "Khoa thương mại điện tử"
+  }, {
+    "id" : 3,
+    "name" : "Khoa kinh doanh quốc tế"
+  }, {
+    "id" : 4,
+    "name" : "Khoa quản trị kinh doanh"
+  }, {
+    "id" : 5,
+    "name" : "Khoa kế toán"
+  }, {
+    "id" : 6,
+    "name" : "Khoa du lịch"
+  }, {
+    "id" : 7,
+    "name" : "Khoa ngân hàng"
+  }, {
+    "id" : 8,
+    "name" : "Khoa kinh tế"
+  }, {
+    "id" : 9,
+    "name" : "Khoa Lý luận chính trị"
+  }, {
+    "id" : 10,
+    "name" : "Khoa Markerting"
+  }, {
+    "id" : 11,
+    "name" : "Khoa Tài chính"
+  }, {
+    "id" : 12,
+    "name" : "Khoa Luật"
+  } ],
+  "Find" : {
+    "-M48gl5iYXy2LZv17Nb5" : {
+      "Content" : "1",
+      "Option" : "Faculty"
+    },
+    "-M48knUjXF3swOlGgnlf" : {
+      "Content" : "1212",
+      "Option" : "Faculty"
+    },
+    "-M4C3K344i__NK2eHH3s" : {
+      "Content" : "",
+      "Option" : "0"
+    },
+    "-M4CDk9uEL5GRJndeweC" : {
+      "Content" : "a",
+      "Option" : "Lecturers"
+    },
+    "-M4CDldC2Z-OPWjQQx6N" : {
+      "Content" : "a",
+      "Option" : "Major"
+    },
+    "-M4CDuf90v-_voTXv_nN" : {
+      "Content" : "",
+      "Option" : "Lecturers"
+    },
+    "-M4CDv6QwSpopBM_C5-Y" : {
+      "Content" : "a",
+      "Option" : "Lecturers"
+    },
+    "-M4CEiBCf9iXCOh5j80C" : {
+      "Content" : "a",
+      "Option" : "Lecturers"
+    },
+    "-M4CZF-V-a3QLiX5P3wW" : {
+      "Content" : "",
+      "Option" : "Major"
+    },
+    "-M4CZFNuJqzI_iibxVtm" : {
+      "Content" : "",
+      "Option" : "Major"
+    },
+    "-M4CZFmTIhoIRolF_U6v" : {
+      "Content" : "",
+      "Option" : "Faculty"
+    },
+    "-M4Ea80DYoCuzhmxQktp" : {
+      "Content" : "a",
+      "Option" : "Lecturers"
+    },
+    "-M4Ea8jNzlh_1xjykwyJ" : {
+      "Content" : "asad",
+      "Option" : "Subject"
+    },
+    "-M4Ea9IEunj9dl6k4bXh" : {
+      "Content" : "asadsda",
+      "Option" : "Major"
+    },
+    "-M4EaDHQ9HH6g8FR4_Fc" : {
+      "Content" : "asadsdasada",
+      "Option" : "Lecturers"
+    },
+    "-M4EaHjA2igFbMOdJk7T" : {
+      "Content" : "sdad",
+      "Option" : "Subject"
+    }
+  },
+  "Lecturers" : [ null, {
+    "gender" : "Nữ",
+    "mail" : "nhamct@due.edu.vn",
+    "name" : "Cao Thị Nhâm",
+    "phone" : "(+84) 988 363 808"
+  }, {
+    "gender" : "Nam",
+    "mail" : "thuynt@due.edu.vn",
+    "name" : "Nguyễn Thành Thuỷ",
+    "phone" : "0905878197"
+  }, {
+    "gender" : "Nữ",
+    "mail" : "chưa cập nhật",
+    "name" : "Trần Thị Thu Thảo",
+    "phone" : "chưa cập nhật"
+  }, {
+    "gender" : "Nam",
+    "mail" : "chuc.nv@due.edu.vn",
+    "name" : "Nguyễn Văn Chức",
+    "phone" : "0905357105"
+  }, {
+    "gender" : "Nữ",
+    "mail" : "van.ptb@due.edu.vn",
+    "name" : "Phan Thị Bích Vân",
+    "phone" : "0905291851"
+  }, {
+    "gender" : "Nam",
+    "mail" : "ledientuan@due.edu.vn",
+    "name" : "Lê Diên Tuấn",
+    "phone" : "Chưa cập nhật"
+  } ]
+}
