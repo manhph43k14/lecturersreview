@@ -80,12 +80,9 @@ function getLec(content,data){
 }
 function getFal(content,data){
     let keys = Object.keys(data)
-    var name= new Array;
-    for(let i=0;i<keys.length;i++){
-        name[i]=data[keys[i]].name;
-    }
-    var index = name.indexOf(content);
-    if(index!=-1){
+    content= content.toUpperCase();
+    if(keys.indexOf(content)!=-1){
+        var index = keys.indexOf(content);
         console.log(data[keys[index]].name);
         console.log(keys[index]);
     } else{
@@ -94,19 +91,21 @@ function getFal(content,data){
 }
 function getSub(content,data){
     let keys = Object.keys(data)
-    var name= new Array;
+    var subClass= new Array;
     for(let i=0;i<keys.length;i++){
-        var temp = data[keys[i]].name;
-
-        name[i]=temp.remove("temp");
+        var temp = keys[i];
+        var tmp = temp.split("_");
+        if(content == tmp[0]){
+            subClass.push(i);
+        }
     }
-    var index = name.indexOf(content);
-    if(index!=-1){
-        console.log(data[keys[index]].mail);
+    for(let i=0;i<subClass.length;i++){
+        var index = subClass[i];
+        console.log(index);
+        console.log(data[keys[index]].name);
         console.log(keys[index]);
-    } else{
-        console.log('not found')
     }
+
 }
 function errData(error){
     console.log(error.message, error.code)
