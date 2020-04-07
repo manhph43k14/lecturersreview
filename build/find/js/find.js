@@ -25,45 +25,60 @@ function init() {
 // 
 function find() {
     var btnFind = document.getElementById('btnFind');
-    const database = firebase.database();
     btnFind.addEventListener('click',function(e){
         var content = document.getElementById('search').value;
         var select = document.getElementById('item');
         var option = select.options[select.selectedIndex].value;
-        // var fid =  database.ref().push();
-        database.ref('Find/').push().set({
-            Option : option,
-            Content: content
-          });
-        print(option);
+        this.state = content;
+        addFind(content,option);
+        go(option,content);
     })
 }
-function print(option){
+// add data to Database
+function addFind(content,option){
+    // const database = firebase.database();
+    firebase.database().ref('Find/').push().set({
+        Option : option,
+        Content: content
+      }); 
+}
+function go(option, content){
     switch (option){
         case "Lecturers":
             var rootRef = firebase.database().ref(option);
-            rootRef.on("value",getLec,errData)
+            rootRef.on("value",getLec(content, data))
             break;
         case "Faculty":
             var rootRef = firebase.database().ref(option);
             rootRef.on("value",getFal,errData)
             break;
+        case "Subject":
+        var rootRef = firebase.database().ref(option);
+        rootRef.on("value",getSub,errData)
+        break;
     }
     
 }
-function getLec(data){
-    data = data.val()
-    let keys = Object.keys(data)
-    for(let i=0;i<keys.length;i++){
-        console.log(data[keys[i]].gender)
-        console.log(data[keys[i]].mail)
-    }
+function getLec(content,data){
+    data.forEach(function(childSnapshot) {
+        var data = childSnapshot.val();
+        console.log(data.email)
+    });
+    
 }
 function getFal(data){
     data = data.val()
     let keys = Object.keys(data)
     for(let i=0;i<keys.length;i++){
         console.log(data[keys[i]].id)
+        console.log(data[keys[i]].name)
+    }
+}
+function getSub(data){
+    data = data.val()
+    let keys = Object.keys(data)
+    for(let i=0;i<keys.length;i++){
+        console.log(data[keys[i]].lecturers)
         console.log(data[keys[i]].name)
     }
 }
