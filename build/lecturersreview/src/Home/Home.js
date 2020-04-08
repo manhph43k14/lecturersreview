@@ -13,13 +13,13 @@ class Home extends Component {
                     {/* Wrapper for slides */}
                     <div className="carousel-inner" role="listbox">
                         <div className="item active">
-                            <img src="k14.jpg" alt="Slide 1" />
+                            <img src="https://scontent.fdad3-1.fna.fbcdn.net/v/t31.0-8/30424977_902263606619606_4677972635617855065_o.jpg?_nc_cat=102&_nc_sid=825194&_nc_ohc=oJc041Vf-oYAX_ikpuh&_nc_ht=scontent.fdad3-1.fna&oh=a0d9b35b514174e15e504e0bf7530c86&oe=5EB1D644" alt="Slide 1" />
                             <div className="carousel-caption">
 
                             </div>
                         </div>
                         <div className="item">
-                            <img src="k14.jpg" alt="Slide 2" />
+                            <img src="https://scontent.fdad3-1.fna.fbcdn.net/v/t31.0-8/30424977_902263606619606_4677972635617855065_o.jpg?_nc_cat=102&_nc_sid=825194&_nc_ohc=oJc041Vf-oYAX_ikpuh&_nc_ht=scontent.fdad3-1.fna&oh=a0d9b35b514174e15e504e0bf7530c86&oe=5EB1D644" alt="Slide 2" />
                             <div className="carousel-caption">
 
                             </div>
