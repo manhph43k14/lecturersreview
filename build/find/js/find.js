@@ -25,7 +25,6 @@ function init() {
 //
 function find() {
     var btnFind = document.getElementById('btnFind');
-    const database = firebase.database();
     btnFind.addEventListener('click',function(e){
         var content = document.getElementById('search').value;
         var select = document.getElementById('item');

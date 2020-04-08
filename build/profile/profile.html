@@ -3,36 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/profile.css">
-    <title>Hồ sơ cá nhân</title>
+    <title>Thông tin cá nhân</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>Thông tin chung</h1>
-    <form>
-        <ul class="form-style-1">
-            <li>
-                <label>Họ và tên <span class="required">*</span></label>
-                <input type="text" name="field1" class="field-divided" placeholder="First" id="first"/> 
-                <input type="text" name="field2" class="field-divided" placeholder="Last" id="last"/>
-            </li>
-            <li>
-                <label>Email <span class="required">*</span></label>
-                <input type="email" name="field3" class="field-long" id="email"/>
-            </li>
-            <li>
-                <label>Tỉnh/Thành phố</label>
-                <input type="text" name="field4" class="field-long"  id="city"/>
-                </select>
-            </li>
-            <li>
-                <label>Phần mô tả</label>
-                <textarea name="field5" id="field5" class="field-long field-textarea" id="message"></textarea>
-            </li>
-            <li>
-                <input type="submit" value="Submit" />
-            </li>
-        </ul>
-    </form>
+    <hr>
+    <div class="container bootstrap snippet">
+        <div class="row">
+            <div class="col-sm-10"><h1>User name</h1></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+        <div class="text-center">
+            <img src="http://ssl.gstatic.com/accounts/ui/avatar_2x.png" class="avatar img-circle img-thumbnail" alt="avatar">
+            <input type="file" class="text-center center-block file-upload">
+        </div></hr><br>
+
+                
+            <div class="panel panel-default">
+                <div class="panel-heading">Home <i class="fa fa-link fa-1x"></i></div>
+                <div class="panel-body"><a href="../index.html">index.html</a></div>
+            </div>    
+            <div class="panel panel-default">
+                <div class="panel-heading">Social Media</div>
+                <div class="panel-body">
+                    <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i>
+                </div>
+            </div>
+
+            </div><!--/col-3-->
+            <div class="col-sm-9">
+                <ul class="nav nav-tabs">
+                    <li class="active"><a data-toggle="tab" href="#profile">Edit Profile</a></li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="profile">
+                        <hr>
+                            <form class="form" id="registrationForm">
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="first_name"><h4>Họ</h4></label>
+                                    <input type="text" class="form-control" name="first_name" placeholder="Họ của bạn" id="first">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="last_name"><h4>Tên</h4></label>
+                                    <input type="text" class="form-control" name="last_name" placeholder="Tên của bạn" id="last">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="email"><h4>Email</h4></label>
+                                    <input type="email" class="form-control" name="email" id="email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="city"><h4>Tỉnh/Thành phố</h4></label>
+                                    <input type="text" class="form-control" name="city" id="city">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-6">
+                                        <label for="message"><h4>Phần mô tả</h4></label>
+                                        <textarea name="message" class="form-control" id="message"></textarea>
+                                    </div> 
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-xs-12">
+                                        <br>
+                                        <input type="submit" value="Submit" />
+                                    </div>
+                            </div>
+                            </form>
+                    </div><!--active-->
+            </div><!--/tab-content-->
+            </div><!--/col-9-->
+        </div><!--/row-->
+    </div>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.12.0/firebase-database.js"></script>
