@@ -22,7 +22,7 @@ function init() {
     find();
 }
 
-// 
+//
 function find() {
     var btnFind = document.getElementById('btnFind');
     const database = firebase.database();
@@ -34,7 +34,7 @@ function find() {
         database.ref('Find/').push().set({
             Option : option,
             Content: content
-          });
+        });
         print(option);
     })
 }
@@ -49,7 +49,7 @@ function print(option){
             rootRef.on("value",getFal,errData)
             break;
     }
-    
+
 }
 function getLec(data){
     data = data.val()
