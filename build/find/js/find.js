@@ -25,14 +25,16 @@ function init() {
 // 
 function find() {
     var btnFind = document.getElementById('btnFind');
-    var content = document.getElementById('search').value.toLowerCase();
-    var select = document.getElementById('item');
-    var option = select.options[select.selectedIndex].value;
+
 
     btnFind.addEventListener('click',function(e){
+        var content = document.getElementById('search').value.toLowerCase();
+        var select = document.getElementById('findItem');
+        var option = select.options[select.selectedIndex].value;
         addFind(content,option);
         go(content,option);
     })
+   
 }
 // add data to Database
 function addFind(content,option){
@@ -47,7 +49,7 @@ function go(content, option){
     rootRef.on("value",function(snapshot){
         getData(content,option,snapshot.val());
     },errData)
-    // render(option);
+    render(option);
 }
 
 function getData(content,option,data){
@@ -68,18 +70,32 @@ function errData(error){
 function render(option){
     var html='';
     var array=[];
-    array=JSON.parse(localStorage.getItem(option));
 
-    for(var i = 0; i< array.length;i++){
-        html+='<li class="lecturer">'
-        html+='<p><span>Name:</span>'+  array[i].name;+'</p>'
-        html+='<p><span>Mail:</span>'+array[i].mail+'</p>'
-        html+='<i class"lecturer-delete" onclick="onDeleteLecturer('+i+')">X</i>'
-        html+='</li>'
-    }
+    array=JSON.parse(localStorage.getItem(option));
+    html = setRender(option,array);
+   
     setHTML('.result-list',html);
 }
 function setHTML(selector,html){
     var element = document.querySelector(selector);
     element.innerHTML=html;
+}
+function setRender(option,array){
+    var html='';
+    switch(option){
+        case "Lecturers":
+            for(var i = 0; i< array.length;i++){
+                html+='<li class="lecturer">'
+                html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
+                html+='<p><span>Mail:</span>'+array[i].mail+'</p>'
+                html+='</li>'
+            }
+            break;
+        case "Falculty":
+            break; 
+        case "Subject":
+            break;
+    }
+   
+    return html;
 }
