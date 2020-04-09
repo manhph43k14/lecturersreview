@@ -116,15 +116,12 @@ function errData(error){
 }
 
 function render(){
-    // var lecturers= new Array;
     var html='';
     var array=[];
 
     array=JSON.parse(localStorage.getItem(storeKeyLec));
 
-    // for(let item of array){
-    //     console.log(item.id)     
-    // }
+    
     for(var i = 0; i<array.length;i++){
         html+='<li class="lecturer">'
         html+='<p><span>Name:</span>'+  array[i].name;+'</p>'
