@@ -3,7 +3,7 @@ window.onload = function()
     init()
 };
 
-// init login page
+// init find page
 function init() {
     // Your web app's Firebase configuration
     const firebaseConfig = {
@@ -25,12 +25,13 @@ function init() {
 // 
 function find() {
     var btnFind = document.getElementById('btnFind');
+    var content = document.getElementById('search').value.toLowerCase();
+    var select = document.getElementById('item');
+    var option = select.options[select.selectedIndex].value;
+
     btnFind.addEventListener('click',function(e){
-        var content = document.getElementById('search').value.toLowerCase();
-        var select = document.getElementById('item');
-        var option = select.options[select.selectedIndex].value;
         addFind(content,option);
-        go(option,content);
+        go(content,option);
     })
 }
 // add data to Database
@@ -41,23 +42,12 @@ function addFind(content,option){
         Content: content
       }); 
 }
-function go(option, content){
+function go(content, option){
     var rootRef = firebase.database().ref(option);
     rootRef.on("value",function(snapshot){
         getData(content,option,snapshot.val());
     },errData)
-    switch (option){
-        case "Lecturers":
-            renderLec();
-            break;
-        case "Faculty":
-            renderFal();
-            break;
-        case "Subject":
-            renderSub();
-        break;
-    }
-    
+    // render(option);
 }
 
 function getData(content,option,data){
@@ -75,12 +65,12 @@ function errData(error){
     console.log(error.message, error.code)
 }
 
-function renderLec(){
+function render(option){
     var html='';
     var array=[];
-    array=JSON.parse(localStorage.getItem(storeKeyLec));
+    array=JSON.parse(localStorage.getItem(option));
 
-    for(var i = 0; i<array.length;i++){
+    for(var i = 0; i< array.length;i++){
         html+='<li class="lecturer">'
         html+='<p><span>Name:</span>'+  array[i].name;+'</p>'
         html+='<p><span>Mail:</span>'+array[i].mail+'</p>'
