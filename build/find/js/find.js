@@ -48,6 +48,7 @@ function go(option, content){
             rootRef.on("value",function(snapshot){
                 getLec(content,snapshot.val());
             },errData)
+            render();
             break;
         case "Faculty":
             var rootRef = firebase.database().ref(option);
@@ -64,46 +65,22 @@ function go(option, content){
     }
     
 }
-var Lecturers = {
-    storeKey : 'LECTURER_DATA',
-    data : [],
-    add: function(lecturer){
-        this.data.push(lecturer)
-    },
-    save: function(){
-        const jsonData = JSON.stringify(this.data);
-        localStorage.setItem(this.storeKey,jsonData);
-    }
+//
+function addStorage(item){
+    localStorage.setItem(storeKey, JSON.stringify(item)); 
 }
+//
+var storeKeyLec = 'LECTURER_DATA';
 function getLec(content,data){
-    var Lecturers = {
-        storeKey : 'LECTURER_DATA',
-        data : [],
-        add: function(lecturer){
-            this.data.push(lecturer)
-        },
-        save: function(){
-            const jsonData = JSON.stringify(this.data);
-            localStorage.setItem(this.storeKey,jsonData);
+  
+    var result=[];
+    let keys = Object.keys(data);
+    for(let i=0;i<keys.length;i++){
+        if(content==data[keys[i]].name){
+            result.push(data[keys[i]]);
         }
     }
-    const jsonData = JSON.stringify(data);
-    localStorage.setItem(this.storeKey,jsonData);
-    Lecturers.save();
-    // let keys = Object.keys(data);
-    // var name= new Array;
-    // for(let i=0;i<data.length;i++){
-    //     name[i]=data[keys[i]].name;
-    //     Lecturers.add(data[i]); 
-    //     Lecturers.save();
-    // }
-    // var index = name.indexOf(content);
-    // if(index!=-1){
-    //     console.log(data[keys[index]].mail);
-    //     console.log(keys[index]);
-    // } else{
-    //     console.log('not found')
-    // }
+    localStorage.setItem(storeKeyLec,JSON.stringify(result));
 }
 function getFal(content,data){
     let keys = Object.keys(data)
@@ -139,18 +116,24 @@ function errData(error){
 }
 
 function render(){
-    var lecturers= new Array;
+    // var lecturers= new Array;
     var html='';
-    for(var i=0; i<data.length;i++){
-        var lecturer = lecturers[i];
+    var array=[];
+
+    array=JSON.parse(localStorage.getItem(storeKeyLec));
+
+    // for(let item of array){
+    //     console.log(item.id)     
+    // }
+    for(var i = 0; i<array.length;i++){
         html+='<li class="lecturer">'
-        html+='<p><span>Name:</span>'+lecturer.name+'</p>'
-        html+='<p><span>Age:</span>'+lecturer.age+'</p>'
+        html+='<p><span>Name:</span>'+  array[i].name;+'</p>'
+        html+='<p><span>Mail:</span>'+array[i].mail+'</p>'
         html+='<i class"lecturer-delete" onclick="onDeleteLecturer('+i+')">X</i>'
         html+='<i class"lecturer-edit" onclick="onEditLecturer('+i+')">Edit</i>'
         html+='</li>'
     }
-    setHTML('#lecturer-list',html);
+    setHTML('.result-list',html);
 }
 function setHTML(selector,html){
     var element = document.querySelector(selector);
