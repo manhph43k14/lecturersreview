@@ -75,7 +75,6 @@ function render(option){
         html+='<p><span>Name:</span>'+  array[i].name;+'</p>'
         html+='<p><span>Mail:</span>'+array[i].mail+'</p>'
         html+='<i class"lecturer-delete" onclick="onDeleteLecturer('+i+')">X</i>'
-        html+='<i class"lecturer-edit" onclick="onEditLecturer('+i+')">Edit</i>'
         html+='</li>'
     }
     setHTML('.result-list',html);
