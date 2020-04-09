@@ -42,37 +42,25 @@ function addFind(content,option){
       }); 
 }
 function go(option, content){
+    var rootRef = firebase.database().ref(option);
+    rootRef.on("value",function(snapshot){
+        getData(content,option,snapshot.val());
+    },errData)
     switch (option){
         case "Lecturers":
-            var rootRef = firebase.database().ref(option);
-            rootRef.on("value",function(snapshot){
-                getLec(content,snapshot.val());
-            },errData)
-            render();
+            renderLec();
             break;
         case "Faculty":
-            var rootRef = firebase.database().ref(option);
-            rootRef.on("value",function(snapshot){
-                getFal(content,snapshot.val());
-            },errData)
+            renderFal();
             break;
         case "Subject":
-        var rootRef = firebase.database().ref(option);
-        rootRef.on("value",function(snapshot){
-            getSub(content,snapshot.val());
-        },errData)
+            renderSub();
         break;
     }
     
 }
-//
-function addStorage(item){
-    localStorage.setItem(storeKey, JSON.stringify(item)); 
-}
-//
-var storeKeyLec = 'LECTURER_DATA';
-function getLec(content,data){
-  
+
+function getData(content,option,data){
     var result=[];
     let keys = Object.keys(data);
     for(let i=0;i<keys.length;i++){
@@ -80,48 +68,18 @@ function getLec(content,data){
             result.push(data[keys[i]]);
         }
     }
-    localStorage.setItem(storeKeyLec,JSON.stringify(result));
+    localStorage.setItem(option,JSON.stringify(result));
 }
-function getFal(content,data){
-    let keys = Object.keys(data)
-    content= content.toUpperCase();
-    if(keys.indexOf(content)!=-1){
-        var index = keys.indexOf(content);
-        console.log(data[keys[index]].name);
-        console.log(keys[index]);
-    } else{
-        console.log('not found')
-    }
-}
-function getSub(content,data){
-    let keys = Object.keys(data)
-    var subClass= new Array;
-    for(let i=0;i<keys.length;i++){
-        var temp = keys[i];
-        var tmp = temp.split("_");
-        if(content == tmp[0]){
-            subClass.push(i);
-        }
-    }
-    for(let i=0;i<subClass.length;i++){
-        var index = subClass[i];
-        console.log(index);
-        console.log(data[keys[index]].name);
-        console.log(keys[index]);
-    }
 
-}
 function errData(error){
     console.log(error.message, error.code)
 }
 
-function render(){
+function renderLec(){
     var html='';
     var array=[];
-
     array=JSON.parse(localStorage.getItem(storeKeyLec));
 
-    
     for(var i = 0; i<array.length;i++){
         html+='<li class="lecturer">'
         html+='<p><span>Name:</span>'+  array[i].name;+'</p>'
