@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {BrowserRouter as Router, Route, Link} from "react-router-dom";
 
 class Footer extends Component {
     render() {
@@ -7,7 +8,7 @@ class Footer extends Component {
                 <div className="col-lg-5">
                     <h3 className="foot">Giới thiệu</h3>
                     <div className="introduce">
-                        <a href="/"><img className="logo" src="https://scontent.fdad3-2.fna.fbcdn.net/v/t1.0-9/20840901_114066525904130_5520067981533078559_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=qlHUDfVOQAgAX8kLHso&_nc_ht=scontent.fdad3-2.fna&oh=336eb91ad3f1ca518ea79bf1bd89973e&oe=5EB25DA2" alt="logo" /></a>
+                        <Link to="/"><img className="logo" src="https://scontent.fdad3-2.fna.fbcdn.net/v/t1.0-9/20840901_114066525904130_5520067981533078559_n.jpg?_nc_cat=107&_nc_sid=85a577&_nc_ohc=qlHUDfVOQAgAX8kLHso&_nc_ht=scontent.fdad3-2.fna&oh=336eb91ad3f1ca518ea79bf1bd89973e&oe=5EB25DA2" alt="logo" /></Link>
                         <p>Xin chào các bạn, nhóm chúng mình tạo ra website này để sinh viên có thể vào xem thông tin của giảng viên với các feedback mà sinh viên khóa trước đã review và đăng kí học phần với giảng viên phù hợp cho bản thân.</p>
                     </div>
                 </div>
