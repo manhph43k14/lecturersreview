@@ -2,11 +2,9 @@ window.onload = function()
 {
     init()
 };
-
-// init login page
 function init() {
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
+// Your web app's Firebase configuration
+    var firebaseConfig = {
         apiKey: "AIzaSyA5ichiiAjA9m315Xo11UOOl1dGT-LIKEQ",
         authDomain: "ldr-pj.firebaseapp.com",
         databaseURL: "https://ldr-pj.firebaseio.com",
@@ -16,15 +14,11 @@ function init() {
         appId: "1:361508485649:web:b60e3b97f9ce73d16b0fb0",
         measurementId: "G-EM1K4B7EVW"
     };
-    // Initialize Firebase
+  // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-
-    validateLogin()
 }
-
-
 var messagesRef = firebase.database().ref('messages');
-document.getElementById('ldr-pj').addEventListener('submit',submitForm);
+document.getElementById('registrationForm').addEventListener('submit',submitForm);
 
 function submitForm(e){
     e.preventDefaut();

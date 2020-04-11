@@ -7,13 +7,18 @@
     background-color: #93CEEE;
     font-family: 'Roboto', sans-serif;
     user-select: none;
-    padding-top: 50px;
+    padding-top: 35px;
+}
+
+.form-check-input[type=checkbox]{
+    margin: 4px -12px;
 }
 
 .header {
     background-color: #93CEEE;
     color: #fff;
     padding: 5px;
+    text-align: center;
 }
 
 .signup,
