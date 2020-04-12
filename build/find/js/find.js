@@ -1,3 +1,5 @@
+
+
 window.onload = function()
 {
     init()
@@ -21,12 +23,11 @@ function init() {
 
     find();
 }
-
+var subject = 'Subject';
+var subDetail = 'Subject Detail';
 // 
 function find() {
     var btnFind = document.getElementById('btnFind');
-
-
     btnFind.addEventListener('click',function(e){
         var content = document.getElementById('search').value.toLowerCase();
         var select = document.getElementById('findItem');
@@ -45,11 +46,20 @@ function addFind(content,option){
       }); 
 }
 function go(content, option){
-    var rootRef = firebase.database().ref(option);
-    rootRef.on("value",function(snapshot){
-        getData(content,option,snapshot.val());
-    },errData)
-    render(option);
+    switch (option){
+        case "Lecturers":
+            var rootRef = firebase.database().ref(option);
+            rootRef.on("value",function(snapshot){
+                getData(content,option,snapshot.val());
+            },errData);
+            render(option);
+            break;
+        case "Falculty":
+            break;
+    }
+
+    
+   
 }
 
 function getData(content,option,data){
@@ -85,17 +95,61 @@ function setRender(option,array){
     switch(option){
         case "Lecturers":
             for(var i = 0; i< array.length;i++){
-                html+='<li class="lecturer">'
-                html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
-                html+='<p><span>Mail:</span>'+array[i].mail+'</p>'
-                html+='</li>'
+                getSub(array[i].id);
+                arraySub=JSON.parse(localStorage.getItem(subDetail));
+                arraySubject = JSON.parse(localStorage.getItem(subject));
+                for(var ii = 0; ii< arraySub.length;ii++){
+                    html+='<li class="'+array[i].id+'-'+arraySubject[ii]+'">'
+                    html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
+                    html+='<p id="'+arraySubject[ii]+'"><span>Subject:</span>'+arraySub[ii].name+'</p>'
+                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii]+')">Đi tới</button>'
+                    html+='</li>'
+                }
+                // comment();
             }
             break;
-        case "Falculty":
-            break; 
         case "Subject":
             break;
     }
    
     return html;
+}
+
+function getSub(id){
+    var rootRefSub = firebase.database().ref('Subject');
+            rootRefSub.on("value",function(snapshot){
+                getDataSub(id,subject,snapshot.val());
+            },errData);
+}
+
+function getDataSub(content,option,data){
+    var result=[];
+    var sub=[];
+    let keys = Object.keys(data);
+    for(let i=0;i<keys.length;i++){
+        if(content==data[keys[i]].lecturers){
+            result.push(keys[i]);
+            sub.push(data[keys[i]]);
+        }
+    }
+    localStorage.setItem(option,JSON.stringify(result));
+    localStorage.setItem(subDetail,JSON.stringify(sub));
+}
+function comment(lecturers,subject){
+    var url ='../comment/comment.html';
+    window.location.assign(url);
+    var data = lecturers + '-' + subject;
+    $.ajax({
+        type: 'GET',
+        url: url,
+        data:data,
+        success: function(data){
+            if(data==false){
+                console.log('empty data');
+            }else{
+                $('#lecturers').html(data);
+            }
+        }
+    })
+    document.getElementById('lecturers').innerHTML = lecturers;
 }
