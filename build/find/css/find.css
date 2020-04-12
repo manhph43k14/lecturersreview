@@ -48,6 +48,4 @@ button:hover{
     border: none;
     transition: all .2s linear;
 }
-.result-list #name:hover{
-    font-size: 25px;
-}
+
