@@ -136,6 +136,8 @@ function getDataSub(content,option,data){
     localStorage.setItem(subDetail,JSON.stringify(sub));
 }
 function comment(lecturers,subject){
+    // lecturers = id lec in database
+    // subject = subject keys in database
     var url ='../comment/comment.html';
     window.location.assign(url);
     var data = lecturers + '-' + subject;
