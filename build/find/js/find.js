@@ -1,5 +1,3 @@
-
-
 window.onload = function()
 {
     init()
@@ -25,6 +23,8 @@ function init() {
 }
 var subject = 'Subject';
 var subDetail = 'Subject Detail';
+var lectu = 'Lecturers';
+var lecDetail = 'Lecturers Detail'
 // 
 function find() {
     var btnFind = document.getElementById('btnFind');
@@ -46,20 +46,11 @@ function addFind(content,option){
       }); 
 }
 function go(content, option){
-    switch (option){
-        case "Lecturers":
-            var rootRef = firebase.database().ref(option);
-            rootRef.on("value",function(snapshot){
-                getData(content,option,snapshot.val());
-            },errData);
-            render(option);
-            break;
-        case "Falculty":
-            break;
-    }
-
-    
-   
+    var rootRef = firebase.database().ref(option);
+    rootRef.on("value",function(snapshot){
+        getData(content,option,snapshot.val());
+    },errData);
+    render(option);
 }
 
 function getData(content,option,data){
@@ -80,10 +71,8 @@ function errData(error){
 function render(option){
     var html='';
     var array=[];
-
     array=JSON.parse(localStorage.getItem(option));
     html = setRender(option,array);
-   
     setHTML('.result-list',html);
 }
 function setHTML(selector,html){
@@ -105,16 +94,40 @@ function setRender(option,array){
                     html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii]+')">Đi tới</button>'
                     html+='</li>'
                 }
-                // comment();
             }
             break;
         case "Subject":
+            for(var i = 0; i< array.length;i++){
+                getLec(array[i].lecturers);
+                lec=JSON.parse(localStorage.getItem(array[i].lecturers));
+                html+='<li class="'+array[i].id+'-'+array[i].lecturers+'">'
+                    html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
+                    html+='<p id="'+array[i].lecturers+'"><span>Lecturers:</span>'+lec[0].name+'</p>'
+                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].lecturers+','+array[i].id+')">Đi tới</button>'
+                    html+='</li>'
+            }
             break;
     }
    
     return html;
 }
+function getLec(id){
+    var rootRef = firebase.database().ref(lectu);
+    rootRef.on("value",function(snapshot){
+        getDataLec(id,snapshot.val());
+    },errData);
+}
+function getDataLec(id,data){
+    var result=[];
+    let keys = Object.keys(data);
+    for(let i=0;i<keys.length;i++){
+        if(id==keys[i]){
+            result.push(data[keys[i]]);
+        }
 
+    }
+    localStorage.setItem(id,JSON.stringify(result));
+}
 function getSub(id){
     var rootRefSub = firebase.database().ref('Subject');
             rootRefSub.on("value",function(snapshot){
