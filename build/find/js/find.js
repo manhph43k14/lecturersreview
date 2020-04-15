@@ -24,6 +24,8 @@ function init() {
 var subject = 'Subject';
 var subDetail = 'Subject Detail';
 var lectu = 'Lecturers';
+var lecturer = 'Lecturer'; // lecturers to comment
+var sub = 'Sub'; //// Subject to comment
 var lecDetail = 'Lecturers Detail'
 // 
 function find() {
@@ -152,19 +154,7 @@ function comment(lecturers,subject){
     // lecturers = id lec in database
     // subject = subject keys in database
     var url ='../comment/comment.html';
+    localStorage.setItem(lecturer,JSON.stringify(lecturers));
+    localStorage.setItem(sub,JSON.stringify(subject));
     window.location.assign(url);
-    var data = lecturers + '-' + subject;
-    $.ajax({
-        type: 'GET',
-        url: url,
-        data:data,
-        success: function(data){
-            if(data==false){
-                console.log('empty data');
-            }else{
-                $('#lecturers').html(data);
-            }
-        }
-    })
-    document.getElementById('lecturers').innerHTML = lecturers;
 }
