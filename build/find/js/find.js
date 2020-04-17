@@ -73,7 +73,7 @@ function errData(error){
 function render(option){
     var html='';
     var array=[];
-    array=JSON.parse(localStorage.getItem(option));
+    array=JSON.parse();
     html = setRender(option,array);
     setHTML('.result-list',html);
 }
