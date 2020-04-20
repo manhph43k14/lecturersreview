@@ -24,8 +24,8 @@ function init() {
 var subject = 'Subject';
 var subDetail = 'Subject Detail';
 var lectu = 'Lecturers';
-var lecturer = 'Lecturer'; // lecturers to comment
-var sub = 'Sub'; //// Subject to comment
+var lecturerID = 'LecturerID'; // lecturers to comment
+var sub = 'SubjectID'; //// Subject to comment
 var lecDetail = 'Lecturers Detail'
 // 
 function find() {
@@ -154,8 +154,7 @@ function comment(lecturers,s){
     // lecturers = id lec in database
     // s= subject keys in database
     var url ='../comment/comment.html';
-    console.log(s);
-    localStorage.setItem(lecturer,JSON.stringify(lecturers));
+    localStorage.setItem(lecturerID,JSON.stringify(lecturers));
     localStorage.setItem(sub,JSON.stringify(s));
     // window.location.assign(url);
 }
