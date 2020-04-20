@@ -23,28 +23,23 @@ function init() {
 }
 
 function profile() {
-    var message = 'Messages/';
     var btnSubmit = document.getElementById('btnSubmit');
     btnSubmit.addEventListener('click',function(e){
-        // var first = getInputVal('first');
-        // var last = getInputVal('last');
-        // var email = getInputVal('email');
-        // var city = getInputVal('city');
-        // var message = getInputVal('message');
-        // // add data
-        // const database = firebase.database();
-        // database.ref(message).push().set({
-        //     first: first,
-        //     last: last,
-        //     email: email,
-        //     city: city,
-        //     message: message
-        //   }); 
+        var first = getInputVal('first');
+        var last = getInputVal('last');
+        var email = getInputVal('email');
+        var city = getInputVal('city');
+        var message = getInputVal('message');
+        // add data
+        const database = firebase.database();
+        database.ref('Messages/').push().set({
+            first: first,
+            last: last,
+            email: email,
+            city: city,
+            message: message
+          }); 
 
-        var rootRef = firebase.database().ref('Messages/');
-        rootRef.on("value",function(snapshot){
-            console.log(snapshot.val());
-        });
     })
    
 }
