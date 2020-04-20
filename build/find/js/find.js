@@ -90,11 +90,10 @@ function setRender(option,array){
                 arraySub=JSON.parse(localStorage.getItem(subDetail));
                 arraySubject = JSON.parse(localStorage.getItem(subject));
                 for(var ii = 0; ii< arraySub.length;ii++){
-                    console.log(arraySubject[ii]);
                     html+='<li class="'+array[i].id+'-'+arraySubject[ii]+'">'
                     html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
                     html+='<p id="'+arraySubject[ii]+'"><span>Subject:</span>'+arraySub[ii].name+'</p>'
-                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii]+')" >Đi tới</button>'
+                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii].toString()+')" >Đi tới</button>'
                     html+='</li>'
                 }
             }
