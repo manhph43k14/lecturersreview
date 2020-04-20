@@ -90,10 +90,11 @@ function setRender(option,array){
                 arraySub=JSON.parse(localStorage.getItem(subDetail));
                 arraySubject = JSON.parse(localStorage.getItem(subject));
                 for(var ii = 0; ii< arraySub.length;ii++){
+                    console.log(arraySubject[ii]);
                     html+='<li class="'+array[i].id+'-'+arraySubject[ii]+'">'
                     html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
                     html+='<p id="'+arraySubject[ii]+'"><span>Subject:</span>'+arraySub[ii].name+'</p>'
-                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii]+')">Đi tới</button>'
+                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii]+')" >Đi tới</button>'
                     html+='</li>'
                 }
             }
@@ -105,7 +106,7 @@ function setRender(option,array){
                 html+='<li class="'+array[i].id+'-'+array[i].lecturers+'">'
                     html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
                     html+='<p id="'+array[i].lecturers+'"><span>Lecturers:</span>'+lec[0].name+'</p>'
-                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].lecturers+','+array[i].id+')">Đi tới</button>'
+                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].lecturers+','+array[i].lecturers+')">Đi tới</button>'
                     html+='</li>'
             }
             break;
@@ -150,11 +151,11 @@ function getDataSub(content,option,data){
     localStorage.setItem(option,JSON.stringify(result));
     localStorage.setItem(subDetail,JSON.stringify(sub));
 }
-function comment(lecturers,subject){
+function comment(lecturers,s){
     // lecturers = id lec in database
     // subject = subject keys in database
     var url ='../comment/comment.html';
     localStorage.setItem(lecturer,JSON.stringify(lecturers));
-    localStorage.setItem(sub,JSON.stringify(subject));
-    window.location.assign(url);
+    localStorage.setItem(sub,JSON.stringify(s));
+    // window.location.assign(url);
 }
