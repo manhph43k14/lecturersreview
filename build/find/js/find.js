@@ -93,7 +93,7 @@ function setRender(option,array){
                     html+='<li class="'+array[i].id+'-'+arraySubject[ii]+'">'
                     html+='<p id="'+array[i].id+'"><span>Name:</span>'+ array[i].name;+'</p>'
                     html+='<p id="'+arraySubject[ii]+'"><span>Subject:</span>'+arraySub[ii].name+'</p>'
-                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii].toString()+')" >Đi tới</button>'
+                    html+='<button type="submit" id="btnGo" onclick="comment('+array[i].id+','+arraySubject[ii]+')" >Đi tới</button>'
                     html+='</li>'
                 }
             }
@@ -152,8 +152,9 @@ function getDataSub(content,option,data){
 }
 function comment(lecturers,s){
     // lecturers = id lec in database
-    // subject = subject keys in database
+    // s= subject keys in database
     var url ='../comment/comment.html';
+    console.log(s);
     localStorage.setItem(lecturer,JSON.stringify(lecturers));
     localStorage.setItem(sub,JSON.stringify(s));
     // window.location.assign(url);
