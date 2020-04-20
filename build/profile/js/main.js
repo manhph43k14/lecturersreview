@@ -16,25 +16,53 @@ function init() {
     };
   // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
-}
-var messagesRef = firebase.database().ref('messages');
-document.getElementById('registrationForm').addEventListener('submit',submitForm);
 
-function submitForm(e){
-    e.preventDefaut();
+    profile();
+}
+function profile(){
+    var btnSubmit = document.getElementById('btnSubmit');
+    btnSubmit.addEventListener('click',function(e){
+        var first = getInputVal('first');
+        var last = getInputVal('last');
+        var email = getInputVal('email');
+        var city = getInputVal('city');
+        var message = getInputVal('message');
+        // saveMessage(first, last, email, city, message);
+        const database = firebase.database();
+        database.ref('Messages/').push().set({
+            first: first,
+            last: last,
+            email: email,
+            city: city,
+            message: message
+        }); 
+        console.log(first)
+})
+    
+}
+
+function submitForm(){
+    // e.preventDefaut();
+    console.log('w');
 
     var first = getInputVal('first');
     var last = getInputVal('last');
     var email = getInputVal('email');
     var city = getInputVal('city');
     var message = getInputVal('message');
-
-
-    saveMessage(first, last, email, city, message);
+    // saveMessage(first, last, email, city, message);
+    const database = firebase.database();
+    database.ref('Messages/').push().set({
+        first: first,
+        last: last,
+        email: email,
+        city: city,
+        message: message
+      }); 
 }
 
 function getInputVal(id){
-    return document.getElementById(id).Value;
+    return document.getElementById(id).value;
 }
 
 function saveMessage(first, last, email, city, message){
