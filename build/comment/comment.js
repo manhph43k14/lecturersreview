@@ -88,11 +88,7 @@
 							td.innerHTML += '&nbsp;';
 							td.innerHTML += '&nbsp;';
 							td.innerHTML += '&nbsp;';
-
-							var shareAnchor = document.createElement('a');
-							shareAnchor.innerHTML = "Share"
-							shareAnchor.setAttribute("style","cursor: pointer;");							
-							td.appendChild(shareAnchor);						
+						
 
 							tr.appendChild(td);						
 						}
@@ -285,10 +281,7 @@
 							td.innerHTML += '&nbsp;';
 							td.innerHTML += '&nbsp;';
 
-							var shareAnchor = document.createElement('a');
-							shareAnchor.innerHTML = "Share"
-							shareAnchor.setAttribute("style","cursor: pointer;");							
-							td.appendChild(shareAnchor);						
+												
 
 							tr.appendChild(td);						
 						}
