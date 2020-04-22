@@ -27,7 +27,11 @@ var lectu = 'Lecturers';
 var lecturerID = 'LecturerID'; // lecturers to comment
 var sub = 'SubjectID'; //// Subject to comment
 var lecDetail = 'Lecturers Detail'
-// 
+// init localStorage
+function initLS(){
+    localStorage.setItem(sub,JSON.stringify(s));
+}
+//
 function find() {
     var btnFind = document.getElementById('btnFind');
     btnFind.addEventListener('click',function(e){
@@ -36,6 +40,7 @@ function find() {
         var option = select.options[select.selectedIndex].value;
         addFind(content,option);
         go(content,option);
+        render(option);
     })
    
 }
@@ -52,7 +57,7 @@ function go(content, option){
     rootRef.on("value",function(snapshot){
         getData(content,option,snapshot.val());
     },errData);
-    render(option);
+    render(this.option);
 }
 
 function getData(content,option,data){
@@ -63,7 +68,7 @@ function getData(content,option,data){
             result.push(data[keys[i]]);
         }
     }
-    localStorage.setItem(option,JSON.stringify(result));
+    localStorage.setItem(option,JSON.stringify(result));  
 }
 
 function errData(error){
@@ -72,7 +77,7 @@ function errData(error){
 
 function render(option){
     var html='';
-    var array=[];
+    var array;
     array=JSON.parse(localStorage.getItem(option));
     html = setRender(option,array);
     setHTML('.result-list',html);
