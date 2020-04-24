@@ -180,7 +180,7 @@ function replyComment(userId) {
 function updateVote(cmtId, isVoteUp) {
 	commentRef.child(cmtId)
 		.once('value', (data) => {
-			voteNum = data.val().voteNum
+			let voteNum = data.val().voteNum
 			voteNum = isVoteUp ? ++voteNum : --voteNum
 
 			const updates = {
