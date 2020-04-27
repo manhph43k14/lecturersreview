@@ -1,34 +1,3 @@
-window.onload = function()
-{
-    init()
-};
-
-// init login page
-function init() {
-    // Your web app's Firebase configuration
-    const firebaseConfig = {
-        apiKey: "AIzaSyA5ichiiAjA9m315Xo11UOOl1dGT-LIKEQ",
-        authDomain: "ldr-pj.firebaseapp.com",
-        databaseURL: "https://ldr-pj.firebaseio.com",
-        projectId: "ldr-pj",
-        storageBucket: "ldr-pj.appspot.com",
-        messagingSenderId: "361508485649",
-        appId: "1:361508485649:web:b60e3b97f9ce73d16b0fb0",
-        measurementId: "G-EM1K4B7EVW"
-    };
-    // Initialize Firebase
-    firebase.initializeApp(firebaseConfig);
-
-    validateLogin()
-}
-
-// Check if user is logged in
-function validateLogin() {
-    if (firebase.auth().currentUser) {
-        window.location.replace("../index.html");
-    }
-}
-
 // Sign up
 function handleSignUp() {
     var email = document.getElementById("email-signup").value;
@@ -76,8 +45,7 @@ function handleSignUp() {
         console.log(response); // log for debug
     })
     .catch(function(error) {
-        alert("Something wrong happened! Plz contact administrator for more detail.");
-        console.log(error);
+        showError(error)
     });
 };
 
@@ -94,21 +62,23 @@ function toggleSignIn() {
         return;
     }
 
-    // Sign in with email and pass.
-    firebase.auth().signInWithEmailAndPassword(email, password)
-        .then((success) => {
-            console.log(success); // log for debug
-            window.location.replace("../index.html")
-        }, (fail) => {
-            console.log(fail) // log for debug
-            // Just show this message for security
-            alert("Email or password is not correct!")
-        })
-        .catch((error) => {
-            console.log(error) // log for debug
-            // Just show this message for security
-            alert("Something wrong happened! Plz contact administrator for more detail.")
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.SESSION)
+    .then(() => {
+        // Sign in with email and pass.
+        firebase.auth().signInWithEmailAndPassword(email, password)
+            .then((success) => {
+            }, (fail) => {
+                console.log(fail) // log for debug
+                // Just show this message for security
+                alert("Email or password is not correct!")
+            })
+            .catch((error) => {
+                showError(error)
         });
+    })
+    .catch((error) => {
+        showError(error)
+    });
 };
 
 function switchForm(id) {
