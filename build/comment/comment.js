@@ -7,6 +7,7 @@ const POST_ID = "post_"
 const COMMENT_ID = "cmt_"
 const COMMENT_TEXTBOX_ID = "cmtTxt_"
 const FUNCBAR_ID = "funcBar_"
+const commentTxt = "commentTxt"
 
 function init() {
 	// dummy data, replace by lectureId who want to comment
@@ -25,7 +26,7 @@ function loadComment() {
 			}
 		})
 }
-
+// success
 function showComment() {
 	const listCmt = []
 	
@@ -37,13 +38,13 @@ function showComment() {
 	}
 
 	listCmt.sort((a,b) => a-b)
-	$('#' + COMMENT_AREA_ID).html("")
-	// document.getElementById(COMMENT_AREA_ID).innerHTML("")
+	// $('#' + COMMENT_AREA_ID).html("")
+	document.getElementById(COMMENT_AREA_ID).innerHTML = ""
 	listCmt.forEach((cmt) => {
 		renderComment(cmt)
 	})
 }
-
+// success
 function renderComment(comment) {
 	let templateCmt =
 		`<div id="postId">
@@ -76,18 +77,18 @@ function renderComment(comment) {
 	templateCmt = templateCmt.replace(/funcBarId/gi, FUNCBAR_ID + comment.cmtId)
 	templateCmt = templateCmt.replace(/voteNum/gi, comment.voteNum)
 	templateCmt = templateCmt.replace(/voteColor/gi, voteColor)
-	$('#' + COMMENT_AREA_ID).append(templateCmt)
-	// document.getElementById(COMMENT_AREA_ID).insertAdjacentHTML('beforeend',templateCmt)
+	// $('#' + COMMENT_AREA_ID).append(templateCmt)
+	document.getElementById(COMMENT_AREA_ID).insertAdjacentHTML('beforeend',templateCmt)
 }
 
 function postComment() {
-	const commentContent = $("#commentTxt").val()
-	// const commentContent = document.getElementByIdcommentTxt.value;
+	// const commentContent = $("#commentTxt").val()
+	const commentContent = document.getElementById(commentTxt).value;
 
 	if (commentContent.trim() == "") {
 		alert("Viết gì đi chứ!")
-		$("#commentTxt").focus()
-		// document.getElementById(commentTxt).focus()
+		// $("#commentTxt").focus()
+		document.getElementById(commentTxt).focus()
 		return
 	}
 
@@ -106,16 +107,16 @@ function postComment() {
 		if (error) {
 			showError(error)
 		} else {
-			$("#commentTxt").val("")
-			// document.getElementById(commentTxt).value("")
+			// $("#commentTxt").val("")
+			document.getElementById(commentTxt).value = ""
 		}
 	})
 }
-
+// success
 function switchToEditMode(cmtId) {
 	isEditMode = true
-	const commentContent = $('#' + cmtId).html()
-	// const commentContent = document.getElementById(cmtId).innerHTML;
+	// const commentContent = $('#' + cmtId).html()
+	const commentContent = document.getElementById(cmtId).innerHTML;
 	
 	let templateCmtTxt = `<textarea id="commentTxtId" name="comment" form="usrform" placeholder="Viết bình luận..." style=" width: 100%;"></textarea>`
 	let templatefuncBar = 
@@ -127,22 +128,23 @@ function switchToEditMode(cmtId) {
 	templateCmtTxt = templateCmtTxt.replace(/commentTxtId/gi, COMMENT_TEXTBOX_ID + cmtId)
 	templatefuncBar = templatefuncBar.replace(/commentId/gi, cmtId)
 
-	$('#' + cmtId).html(templateCmtTxt)
-	// document.getElementById(cmtId).innerHTML = templateCmtTxt
-	$('#' + COMMENT_TEXTBOX_ID + cmtId).val(commentContent)
-	// document.getElementById(COMMENT_TEXTBOX_ID + cmtId).value = commentContent
-	$('#' + FUNCBAR_ID + cmtId).html(templatefuncBar)
-	// document.getElementById(FUNCBAR_ID + cmtId).innerHTML = templatefuncBar
+	// $('#' + cmtId).html(templateCmtTxt)
+	document.getElementById(cmtId).innerHTML = templateCmtTxt
+	// $('#' + COMMENT_TEXTBOX_ID + cmtId).val(commentContent)
+	document.getElementById(COMMENT_TEXTBOX_ID + cmtId).value = commentContent
+	// $('#' + FUNCBAR_ID + cmtId).html(templatefuncBar)
+	document.getElementById(FUNCBAR_ID + cmtId).innerHTML = templatefuncBar
 }
 
+// success
 function editComment(cmtId) {
-	const commentContent = $('#' + COMMENT_TEXTBOX_ID + cmtId).val()
-	// const commentContent = document.getElementById(COMMENT_AREA_ID+cmtId).value;
+	// const commentContent = $('#' + COMMENT_TEXTBOX_ID + cmtId).val()
+	const commentContent = document.getElementById(COMMENT_TEXTBOX_ID + cmtId).value 
 
 	if (commentContent.trim() == "") {
 		alert("Viết gì đi chứ!")
-		$('#' + COMMENT_TEXTBOX_ID + cmtId).focus()
-		// document.getElementById(COMMENT_AREA_ID+cmtId).focus();
+		// $('#' + COMMENT_TEXTBOX_ID + cmtId).focus()
+		document.getElementById(COMMENT_AREA_ID+cmtId).focus();
 		return
 	}
 
@@ -183,10 +185,17 @@ function deleteComment(cmtId) {
 }
 
 function replyComment(userId) {
-	$('#commentTxt').val("@[" + userId + "] ")
-	// document.getElementById(commentTxt).value = "@[" + userId + "] "
-	$('#commentTxt').focus()
-	// document.getElementById(commentTxt).focus();
+
+	// $('#commentTxt').val("@[" + userId + "] ")
+	// var text = "@[" + userId + "] "
+	document.getElementById(commentTxt).value = "@[" + userId + "] "
+	// $('#commentTxt').focus()
+	document.getElementById(commentTxt).focus();
+
+	// var commentTxt = document.getElementById(commentTxt)
+	// commentTxt.textContent = ""
+	// console.log(document.getElementById(commentTxt));
+
 	document.documentElement.scrollTop = 0
 }
 
