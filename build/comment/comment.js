@@ -38,6 +38,7 @@ function showComment() {
 
 	listCmt.sort((a,b) => a-b)
 	$('#' + COMMENT_AREA_ID).html("")
+	// document.getElementById(COMMENT_AREA_ID).innerHTML("")
 	listCmt.forEach((cmt) => {
 		renderComment(cmt)
 	})
@@ -76,14 +77,17 @@ function renderComment(comment) {
 	templateCmt = templateCmt.replace(/voteNum/gi, comment.voteNum)
 	templateCmt = templateCmt.replace(/voteColor/gi, voteColor)
 	$('#' + COMMENT_AREA_ID).append(templateCmt)
+	// document.getElementById(COMMENT_AREA_ID).insertAdjacentHTML('beforeend',templateCmt)
 }
 
 function postComment() {
 	const commentContent = $("#commentTxt").val()
+	// const commentContent = document.getElementByIdcommentTxt.value;
 
 	if (commentContent.trim() == "") {
 		alert("Viết gì đi chứ!")
 		$("#commentTxt").focus()
+		// document.getElementById(commentTxt).focus()
 		return
 	}
 
@@ -103,6 +107,7 @@ function postComment() {
 			showError(error)
 		} else {
 			$("#commentTxt").val("")
+			// document.getElementById(commentTxt).value("")
 		}
 	})
 }
@@ -110,6 +115,7 @@ function postComment() {
 function switchToEditMode(cmtId) {
 	isEditMode = true
 	const commentContent = $('#' + cmtId).html()
+	// const commentContent = document.getElementById(cmtId).innerHTML;
 	
 	let templateCmtTxt = `<textarea id="commentTxtId" name="comment" form="usrform" placeholder="Viết bình luận..." style=" width: 100%;"></textarea>`
 	let templatefuncBar = 
@@ -122,16 +128,21 @@ function switchToEditMode(cmtId) {
 	templatefuncBar = templatefuncBar.replace(/commentId/gi, cmtId)
 
 	$('#' + cmtId).html(templateCmtTxt)
+	// document.getElementById(cmtId).innerHTML = templateCmtTxt
 	$('#' + COMMENT_TEXTBOX_ID + cmtId).val(commentContent)
+	// document.getElementById(COMMENT_TEXTBOX_ID + cmtId).value = commentContent
 	$('#' + FUNCBAR_ID + cmtId).html(templatefuncBar)
+	// document.getElementById(FUNCBAR_ID + cmtId).innerHTML = templatefuncBar
 }
 
 function editComment(cmtId) {
 	const commentContent = $('#' + COMMENT_TEXTBOX_ID + cmtId).val()
+	// const commentContent = document.getElementById(COMMENT_AREA_ID+cmtId).value;
 
 	if (commentContent.trim() == "") {
 		alert("Viết gì đi chứ!")
 		$('#' + COMMENT_TEXTBOX_ID + cmtId).focus()
+		// document.getElementById(COMMENT_AREA_ID+cmtId).focus();
 		return
 	}
 
@@ -173,7 +184,9 @@ function deleteComment(cmtId) {
 
 function replyComment(userId) {
 	$('#commentTxt').val("@[" + userId + "] ")
+	// document.getElementById(commentTxt).value = "@[" + userId + "] "
 	$('#commentTxt').focus()
+	// document.getElementById(commentTxt).focus();
 	document.documentElement.scrollTop = 0
 }
 
