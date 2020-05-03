@@ -26,7 +26,7 @@ function loadComment() {
 			}
 		})
 }
-// success
+
 function showComment() {
 	const listCmt = []
 	
@@ -44,7 +44,7 @@ function showComment() {
 		renderComment(cmt)
 	})
 }
-// success
+
 function renderComment(comment) {
 	let templateCmt =
 		`<div id="postId">
@@ -112,7 +112,7 @@ function postComment() {
 		}
 	})
 }
-// success
+
 function switchToEditMode(cmtId) {
 	isEditMode = true
 	// const commentContent = $('#' + cmtId).html()
@@ -136,7 +136,7 @@ function switchToEditMode(cmtId) {
 	document.getElementById(FUNCBAR_ID + cmtId).innerHTML = templatefuncBar
 }
 
-// success
+
 function editComment(cmtId) {
 	// const commentContent = $('#' + COMMENT_TEXTBOX_ID + cmtId).val()
 	const commentContent = document.getElementById(COMMENT_TEXTBOX_ID + cmtId).value 
@@ -191,10 +191,6 @@ function replyComment(userId) {
 	document.getElementById(commentTxt).value = "@[" + userId + "] "
 	// $('#commentTxt').focus()
 	document.getElementById(commentTxt).focus();
-
-	// var commentTxt = document.getElementById(commentTxt)
-	// commentTxt.textContent = ""
-	// console.log(document.getElementById(commentTxt));
 
 	document.documentElement.scrollTop = 0
 }
