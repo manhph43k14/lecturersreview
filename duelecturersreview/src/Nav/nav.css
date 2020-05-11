@@ -20,3 +20,6 @@
 .navbar-brand {
   padding: 5px;
 }
+.navbar-collapse{
+  margin-top: 10px;
+}
