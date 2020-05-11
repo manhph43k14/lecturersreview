@@ -40,27 +40,36 @@ class Comment extends Component {
     this.database.ref("Lecturers").orderByChild('name')
 		.equalTo(lecturer)
 		.on('value', (data) => {
-			var array = data.val();
-      if(array!=null){
-        for(let i = 1;i<array.length;i++){
+      var array = data.val();
+      for(let elm in array){
+        if(elm!=null){
           this.setState({
-            lectureId : array[i].id
+            lectureId : array[elm].id
           })
           this.loadComment();
-          
         }
       }
+      // if(array!=null){
+      //   for(let i = 1;i<array.length;i++){
+      //     this.setState({
+      //       lectureId : array[i].id
+      //     })
+      //     this.loadComment();
+          
+      //   }
+      // }
       
     })
     this.database.ref("Subject").orderByChild('name')
 		.equalTo(subject)
 		.on('value', (data) => {
 			var array = data.val();
-      if(array!=null){
-        for(let i = 1;i<array.length;i++){
+      for(let elm in array){
+        if(elm!=null){
           this.setState({
-            subjectId : array[i].id
+            subjectId : array[elm].id
           })
+          this.loadComment();
         }
       }
       
