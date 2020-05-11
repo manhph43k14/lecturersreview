@@ -107,11 +107,12 @@ class Comment extends Component {
 
     const currentTime = new Date().getTime()
     const currentCmt = this.state.commentRef.push()
-
+    var lecId = this.state.lectureId;
+    var subjectId = this.state.subjectId;
     currentCmt.set({
       cmtId: currentCmt.key,
-      lecId: this.state.lectureId,
-      subjectId: this.state.subjectId,
+      lecId: lecId,
+      subjectId: subjectId,
       userId: user.email,
       content: commentContent,
       createTime: currentTime,
