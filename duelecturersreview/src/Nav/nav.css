@@ -1,0 +1,22 @@
+.hide {
+  display: none;
+}
+.navbar>.container {
+  display: block;
+  padding: 10px;
+}
+.navbar-right{
+  display: inline-block;
+}
+.navbar{
+  padding: 0;
+}
+.navbar-default .navbar-nav>li>a {
+  font-size: 18px;
+}
+.container .logo{
+  margin-right: 10px;
+}
+.navbar-brand {
+  padding: 5px;
+}

@@ -1,0 +1,85 @@
+.box{
+  width: 60%;
+  margin: auto;
+  padding-top: 70px;
+  height: auto;
+}
+.box h3{
+  color: darkgrey;
+  font-weight: bold;
+}
+.timkiem{
+  text-align: center;
+  display: block;
+  margin-top: 40px;
+}
+.timkiem input{
+  width: 65%;
+  margin-right: 20px;
+  height: 35px;
+  outline: none;
+  padding-left: 18px;
+  border-color: rgb(199, 199, 199);
+  border-style: solid;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  cursor: text;
+}
+.timkiem .item{
+  width: 23%;
+  text-align: center;
+  margin-bottom: 25px;
+}
+.timkiem button{
+  margin-top: 5px;
+  font-size: 17px;
+  height: 35px;
+  background-color: white;
+  color: #4f5b66;
+  width: 13%;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-color: rgb(199, 199, 199);
+  border-style: solid;
+  float: right;
+}
+button:hover{
+  background-color: #65737e;
+  color: white;
+  border: none;
+  transition: all .2s linear;
+}
+.result-list{
+  height: 277px;
+  margin-top: 30px;
+  text-align: left;
+}
+.result-list ul{
+  list-style: none;
+}
+#btnReview{
+  text-decoration: none;
+  color: darkred;
+  float: right;
+  padding-right: 7em;
+}
+#btnReview:hover{
+  background-color: rgb(236, 236, 236);
+}
+#btnReview::before{
+  content: "➛";
+}
+table{
+  margin-bottom: 10px;
+}
+#gv::before{
+  content: "Giảng viên: ";
+}
+#gv{
+  margin-right: 30px;
+}
+#sub::before{
+  content: "Môn: ";
+}

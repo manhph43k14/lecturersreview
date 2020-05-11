@@ -1,0 +1,79 @@
+.lylich {
+  margin: 0 auto;
+  width: 90%;
+  padding: 10px 150px;
+  display: inline-flex;
+  text-align: center;
+  margin-bottom: 64px;
+}
+.lylich .col-30 {
+  flex: 30%;
+  padding-top: 120px;
+}
+.lylich .col-70 {
+  flex: 70%;
+  margin-top: 90px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+table tr th {
+  text-align: left;
+}
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+tr:nth-child(even) {
+  background-color: #f3f3f3;
+}
+.title {
+  font-size: 20px;
+}
+.title::after {
+  content: "Thông tin chung";
+  padding-left: 5px;
+}
+.ava .name {
+  padding: 10px 0px 5px;
+}
+.ava .name h4{
+  font-weight: 800;
+}
+@media (max-width: 1340px) {
+  .lylich {
+    padding: 30px 120px;
+  }
+}
+@media (max-width: 1240px) {
+  .lylich {
+    padding: 30px 100px;
+  }
+}
+@media (max-width: 1140px) {
+  .lylich {
+    padding: 30px 80px;
+  }
+}
+@media (max-width: 992px) {
+  .lylich {
+    padding: 30px;
+  }
+}
+@media (max-width: 776px) {
+  .lylich .col-70 {
+    margin-left: 10px;
+  }
+  .lylich {
+    width: 100%;
+  }
+}
+@media (max-width: 630px) {
+  .lylich {
+    padding: 30px 0px;
+  }
+}
